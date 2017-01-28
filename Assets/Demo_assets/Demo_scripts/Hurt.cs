@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Hurt : MonoBehaviour
 {
@@ -11,8 +12,12 @@ public class Hurt : MonoBehaviour
         player = FindObjectOfType<Controls>();
     }
 
-    void Update()
+
+    void Die()
     {
+        player.switchMove(false);
+        int scene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -20,7 +25,8 @@ public class Hurt : MonoBehaviour
         if (other.tag == "Player")
         {
             player.rb.velocity = new Vector2(0, 0);
-            player.transform.position = start.position;
+            Die();
+            //player.transform.position = start.position;
         }
     }
 }

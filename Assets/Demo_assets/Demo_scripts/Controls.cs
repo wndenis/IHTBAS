@@ -5,74 +5,123 @@ using System;
 public class Controls : MonoBehaviour
 {
     [HideInInspector] public Rigidbody2D rb;
-    private Transform transform;
+    [HideInInspector] public SpriteRenderer sr;
+    //private Transform transform;
     private Vector2 defaultTransform;
-    private SpriteRenderer sr;
     private Camera cam;
 
+    public void switchMove(bool v)
+    {
+        canMove = v;
+    }
+
+    private bool canMove;
     public float movespeed;
     public float jumpheight;
     private float jumpMultiplier = 1;
     private float speedMultiplier = 1;
-    private bool jump;
-    private char mode; // abilities
+    [HideInInspector] public bool jump;
+    private char mode;
 
+    public LayerMask whatIsGround;
     public Transform groundCheck;
     public float groundCheckRadius;
-    public LayerMask whatIsGround;
     private bool onGround;
+
+    public LayerMask whatIsWall;
+    public Transform wallCheckL;
+    public Transform wallCheckR;
+    //public float wallCheckRadius;
+    private bool onWall_l;
+    private bool onWall_r;
+    private bool doubleJumpRight;
+    private bool doubleJumpLeft;
+
+    public Transform ceilCheck;
+    private bool onCeil;
 
     private bool facingRight = true;
     [HideInInspector] public string moving = "";
-
-
-    private float maxt = 500;
-    private float zt;
-    private float xt;
-    private float ct;
-    private float vt;
 
     private Color zC;
     private Color xC;
     private Color cC;
     private Color vC;
+    private Color invisC;
+
+    public SpriteRenderer zInd;
+    public SpriteRenderer xInd;
+    public SpriteRenderer cInd;
+    public SpriteRenderer vInd;
+
+
 
 
     public void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        transform = GetComponent<Transform>();
         sr = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
         defaultTransform = transform.localScale;
 
-        zt = maxt;
-        xt = maxt;
-        ct = maxt;
-        vt = maxt;
+        canMove = true;
 
-        zC = new Color(0.5f, 0.5f, 0.5f);
-        xC = new Color(0.7f, 0.7f, 0.2f);
-        cC = new Color(0.5f, 1f, 0.5f);
+        zC = new Color(0.5f, 1f, 0.5f);
+        xC = new Color(1f, 1f, 0.2f);
+        cC = new Color(0.5f, 0.5f, 1f);
         vC = new Color(1f, 0.4f, 0.5f);
+        invisC = new Color(1, 1, 1, 0);
 
-
+        AudioSource ac = GetComponent<AudioSource>();
+        ac.PlayOneShot(ac.clip);
     }
 
 
     public void moveRight()
     {
-        
-        rb.velocity = new Vector2(movespeed * speedMultiplier, rb.velocity.y);
-        if (!facingRight) Flip();
+        if (canMove)
+        {
+            rb.velocity = new Vector2(movespeed * speedMultiplier, rb.velocity.y);
+            if (!facingRight) Flip();
+        }
     }
     public void moveLeft()
     {
-        rb.velocity = new Vector2(-movespeed * speedMultiplier, rb.velocity.y);
-        if (facingRight) Flip();
+        if (canMove)
+        {
+            rb.velocity = new Vector2(-movespeed * speedMultiplier, rb.velocity.y);
+            if (facingRight) Flip();
+        }
     }
+
     public void makeJump()
     {
-        if(onGround) jump = true;
+        if (canMove)
+        {
+            if (onGround)
+            {
+                jump = true;
+            }
+            else /*if(rb.velocity.y < jumpheight)*/
+            {
+                if (onWall_r) {
+                    if(facingRight && doubleJumpRight)
+                    {
+                        Debug.Log("Fr = " + facingRight);
+                        Debug.Log("DJL = " + doubleJumpLeft + ";  DJR = " + doubleJumpRight);
+                        Debug.Log("\n\n\n\n");
+                        doubleJumpRight = false;
+                        doubleJumpLeft = true;
+                        jump = true;
+                    }
+                    else if (!facingRight && doubleJumpLeft)
+                    {
+                        doubleJumpRight = true;
+                        doubleJumpLeft = false;
+                        jump = true;
+                    }
+                }
+            }
+        }
     }
 
 
@@ -83,74 +132,19 @@ public class Controls : MonoBehaviour
 
     void Update()
     {
-
-        switch (mode)
-        {
-            case 'z':
-                {
-                    sr.color = new Color(zC.r * (zt / (maxt + 1)), zC.g * (zt / (maxt + 1)), zC.b * (zt / (maxt + 1)));
-                    if (zt-- < 0) resetMode();
-                    if (xt < maxt) xt++;
-                    if (ct < maxt) ct++;
-                    if (vt < maxt) vt++;
-                    break;
-                }
-            case 'x':
-                {
-                    sr.color = new Color(xC.r * (xt / (maxt + 1)), xC.g * (xt / (maxt + 1)), xC.b * (xt / (maxt + 1)));
-                    if (xt-- < 0) resetMode();
-                    if (zt < maxt) zt++;
-                    if (ct < maxt) ct++;
-                    if (vt < maxt) vt++;
-                    break;
-                }
-            case 'c':
-                {
-                    sr.color = new Color(cC.r * (ct / (maxt + 1)), cC.g * (ct / (maxt + 1)), cC.b * (ct / (maxt + 1)));
-                    if (ct-- < 0) resetMode();
-                    if (xt < maxt) xt++;
-                    if (zt < maxt) zt++;
-                    if (vt < maxt) vt++;
-                    break;
-                }
-            case 'v':
-                {
-                    sr.color = new Color(vC.r * (vt / (maxt + 1)), vC.g * (vt / (maxt + 1)), vC.b * (vt / (maxt + 1)));
-                    if (vt-- < 0) resetMode();
-                    if (xt < maxt) xt++;
-                    if (ct < maxt) ct++;
-                    if (zt < maxt) zt++;
-                    break;
-                }
-            default:
-                {
-                    if (zt < maxt) zt++;
-                    if (xt < maxt) xt++;
-                    if (ct < maxt) ct++;
-                    if (zt < maxt) vt++;
-                    break;
-                }
-        }
-
-
-        if(moving == "right")
-        {
-            moveRight();
-        }
-        if(moving == "left")
-        {
-            moveLeft();
-        }
-
-
-
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            moveLeft();
+            if (!(!onGround && onWall_l))
+            {
+                moveLeft();
+            }
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            moveRight();
+            if (!(!onGround && onWall_r))
+            {
+                moveRight();
+            }
         }
 
         if (Input.GetKey(KeyCode.Space))
@@ -158,9 +152,19 @@ public class Controls : MonoBehaviour
             makeJump();
         }
 
+
+
+        if (moving == "right")
+        {
+            moveRight();
+        }
+        if (moving == "left")
+        {
+            moveLeft();
+        }
         if (jump)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpheight*jumpMultiplier);
+            rb.velocity = new Vector2(rb.velocity.x, jumpheight * jumpMultiplier);
             jump = false;
         }
 
@@ -174,80 +178,120 @@ public class Controls : MonoBehaviour
     void FixedUpdate()
     {
         onGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+        if (onGround)
+        {
+            doubleJumpRight = true;
+            doubleJumpLeft = true;
+        }
+        onWall_l = Physics2D.OverlapCircle(wallCheckL.position, groundCheckRadius, whatIsWall);
+        onWall_r = Physics2D.OverlapCircle(wallCheckR.position, groundCheckRadius, whatIsWall);
+        onCeil = Physics2D.OverlapCircle(ceilCheck.position, groundCheckRadius, whatIsWall);
     }
 
     void Flip() // flipping player's view
     {
-        sr.flipX = facingRight;
+        //sr.flipX = facingRight;
+        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         facingRight = !facingRight;
+    }
+
+    void switchInd(char ind)
+    {
+        zInd.color = invisC;
+        xInd.color = invisC;
+        cInd.color = invisC;
+        vInd.color = invisC;
+        switch (ind)
+        {
+            case 'z':{
+                    zInd.color = zC;
+                    break;
+                }
+            case 'x': {
+                    xInd.color = xC;
+                    break;
+                }
+            case 'c': {
+                    cInd.color = cC;
+                    break;
+                }
+            case 'v': {
+                    vInd.color = vC;
+                    break;
+                }
+        }
     }
 
     public void switchMode(char c)
     {
         if (c == 'z') // --------------- squeeze
         {
-            if (mode != 'z')
+            if (mode == 'z' && !onCeil || mode != 'z')
             {
-                resetMode();
-                speedMultiplier = 0.8f;
-                jumpMultiplier = 0.8f;
-                transform.localScale = defaultTransform/2;
-                mode = c;
-            }
-            else
-            {
-                resetMode();
+                if (mode != 'z')
+                {
+                    resetMode();
+                    speedMultiplier = 0.8f;
+                    jumpMultiplier = 0.8f;
+                    transform.localScale /= 2;
+                    mode = 'z';
+                    switchInd('z');
+                }
+                else resetMode();
             }
         }
 
         else if (c == 'x') // --------------- speed
-        {
-            if (mode != 'x')
+        {  
+            if (mode == 'z' && !onCeil || mode != 'z')
             {
-                resetMode();
-                speedMultiplier = 1.85f;
-                mode = c;
-            }
-            else
-            {
-                resetMode();
+                if (mode != 'x') {
+                    resetMode();
+                    speedMultiplier = 1.85f;
+                    mode = 'x';
+                    switchInd('x');
+                }
+                else resetMode();
             }
         }
 
         else if (c == 'c') // --------------- jump
         {
-            if(mode != 'c')
+            if (mode == 'z' && !onCeil || mode != 'z')
             {
-                resetMode();
-                jumpMultiplier = 1.3f;
-                mode = c;
-            }
-            else
-            {
-                resetMode();
+                if (mode != 'c')
+                {
+                    resetMode();
+                    jumpMultiplier = 1.3f;
+                    mode = 'c';
+                    switchInd('c');
+                }
+                else resetMode();
             }
         }
 
         else if (c == 'v') // --------------- power
         {
-            if (mode != 'v')
+            
+            if (mode == 'z' && !onCeil || mode != 'z')
             {
-                resetMode();
-                mode = c;
-            }
-            else
-            {
-                resetMode();
+                if (mode != 'v')
+                {
+                    resetMode();
+                    mode = 'v';
+                    switchInd('v');
+                }
+                else resetMode();
             }
         };
     }
 
     void resetMode()
     {
-        sr.color = new Color(1f, 1f, 1f);
         jumpMultiplier = 1;
         speedMultiplier = 1;
-        transform.localScale = defaultTransform;
+        transform.localScale = new Vector3(defaultTransform.x * (facingRight ? 1 : -1), defaultTransform.y, transform.localScale.z);
         mode = 'f';
+        switchInd('f');
     }
 }
