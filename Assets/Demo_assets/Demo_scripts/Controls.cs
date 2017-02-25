@@ -15,7 +15,8 @@ public class Controls : MonoBehaviour
     public Camera cam;
 
     private bool canMove;
-    public float movespeed = 5.4f;
+    public float maxSpeed = 5.4f;
+    public float movespeed = 101;
     public float jumpheight = 17;
     
     private char mode;
@@ -51,7 +52,6 @@ public class Controls : MonoBehaviour
 
     public float boostPower = 41;
     public float leapPower = 34;
-
 
     public void switchMove(bool v)
     {
@@ -89,7 +89,11 @@ public class Controls : MonoBehaviour
     {
         if (canMove)
         {
-            rb.velocity = new Vector2(movespeed * (dir == "right" ? 1 : -1), rb.velocity.y);
+            //rb.velocity = new Vector2(movespeed * (dir == "right" ? 1 : -1), rb.velocity.y);
+            if (Math.Abs(rb.velocity.x) < maxSpeed) {
+                Debug.Log("Force");
+                rb.AddForce(new Vector2(movespeed * (dir == "right" ? 1 : -1), 0)); }
+            //rb.MovePosition(new Vector2(transform.position.x + movespeed * (dir == "right" ? 1 : -1) / 2, transform.position.y));
             if ((dir == "right") && (!facingRight) || (dir == "left") && (facingRight))
             {
                 Flip();
@@ -116,7 +120,7 @@ public class Controls : MonoBehaviour
                     doubleJumpRight = false;
                     doubleJumpLeft = true;
                     Flip();
-                    rb.velocity = new Vector2(-movespeed, v);
+                    rb.velocity = new Vector2(-maxSpeed, v);
                     return true;
                 }
                 else if (doubleJumpLeft && onWall_l && !onWall_r)
@@ -124,7 +128,7 @@ public class Controls : MonoBehaviour
                     doubleJumpRight = true;
                     doubleJumpLeft = false;
                     Flip();
-                    rb.velocity = new Vector2(movespeed, v);
+                    rb.velocity = new Vector2(maxSpeed, v);
                     return true;
                     //rb.velocity = new Vector2(rb.velocity.x, power);
                 }
@@ -355,11 +359,12 @@ public class Controls : MonoBehaviour
             particleBurst("power");
             Vector3 pos = transform.position;
             pos.x += facingRight ? 0.5f : -0.5f;
-            Collider2D[] collisions = Physics2D.OverlapCircleAll(pos, 1f, LayerMask.GetMask("PhysGround"));
-            if (collisions.Length > 0)
+            Collider2D[] collisionsPhys = Physics2D.OverlapCircleAll(pos, 1.1f, LayerMask.GetMask("PhysGround"));
+            Collider2D[] collisionsGround = Physics2D.OverlapCircleAll(pos, 0.15f, LayerMask.GetMask("Ground"));
+            if (collisionsPhys.Length > 0)
             {
-                this.rb.AddForce(new Vector2(facingRight ? -35 : 35, 3), ForceMode2D.Impulse);
-                foreach (var col in collisions)
+                this.rb.AddForce(new Vector2(facingRight ? -2 : 2, 3), ForceMode2D.Impulse);
+                foreach (var col in collisionsPhys)
                 {
                     var rb = col.GetComponent<Rigidbody2D>();
                     rb.bodyType = RigidbodyType2D.Dynamic;
@@ -378,9 +383,13 @@ public class Controls : MonoBehaviour
                     }
                 }
             }
+            else if(collisionsGround.Length > 0)
+            {
+                this.rb.AddForce(new Vector2(facingRight ? -35 : 35, 3), ForceMode2D.Impulse);
+            }
             else
             {
-                rb.AddForce(new Vector2(facingRight ? -3 : 3, 3), ForceMode2D.Impulse);
+                rb.AddForce(new Vector2(facingRight ? -1 : 1, 3), ForceMode2D.Impulse);
             }
         };
     }
