@@ -1,26 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Controls : MonoBehaviour
 {
     [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public SpriteRenderer sr;
-    //private Transform transform;
-    private Vector2 defaultTransform;
-    private Camera cam;
+    [HideInInspector] public string moving = "";
 
-    public void switchMove(bool v)
-    {
-        canMove = v;
-    }
+    private Vector3 savedPosition;
+
+    private Vector3 defaultTransform;
+    public Camera cam;
 
     private bool canMove;
-    public float movespeed;
-    public float jumpheight;
-    private float jumpMultiplier = 1;
-    private float speedMultiplier = 1;
-    [HideInInspector] public bool jump;
+    public float movespeed = 5.4f;
+    public float jumpheight = 17;
+    
     private char mode;
 
     public LayerMask whatIsGround;
@@ -31,17 +28,15 @@ public class Controls : MonoBehaviour
     public LayerMask whatIsWall;
     public Transform wallCheckL;
     public Transform wallCheckR;
-    //public float wallCheckRadius;
     private bool onWall_l;
     private bool onWall_r;
-    private bool doubleJumpRight;
-    private bool doubleJumpLeft;
 
     public Transform ceilCheck;
     private bool onCeil;
+    private bool doubleJumpRight;
+    private bool doubleJumpLeft;
 
     private bool facingRight = true;
-    [HideInInspector] public string moving = "";
 
     private Color zC;
     private Color xC;
@@ -54,7 +49,19 @@ public class Controls : MonoBehaviour
     public SpriteRenderer cInd;
     public SpriteRenderer vInd;
 
+    public float boostPower = 41;
+    public float leapPower = 34;
 
+
+    public void switchMove(bool v)
+    {
+        canMove = v;
+    }
+
+    public void savePosition(Vector3 newSavedPosition)
+    {
+        savedPosition = newSavedPosition;
+    }
 
 
     public void Start()
@@ -62,6 +69,7 @@ public class Controls : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         defaultTransform = transform.localScale;
+        savedPosition = transform.position;
 
         canMove = true;
 
@@ -71,57 +79,58 @@ public class Controls : MonoBehaviour
         vC = new Color(1f, 0.4f, 0.5f);
         invisC = new Color(1, 1, 1, 0);
 
+        resetMode();
+        /*
         AudioSource ac = GetComponent<AudioSource>();
-        ac.PlayOneShot(ac.clip);
+        ac.PlayOneShot(ac.clip);*/
     }
 
-
-    public void moveRight()
+    public void moveTo(string dir)
     {
         if (canMove)
         {
-            rb.velocity = new Vector2(movespeed * speedMultiplier, rb.velocity.y);
-            if (!facingRight) Flip();
-        }
-    }
-    public void moveLeft()
-    {
-        if (canMove)
-        {
-            rb.velocity = new Vector2(-movespeed * speedMultiplier, rb.velocity.y);
-            if (facingRight) Flip();
+            rb.velocity = new Vector2(movespeed * (dir == "right" ? 1 : -1), rb.velocity.y);
+            if ((dir == "right") && (!facingRight) || (dir == "left") && (facingRight))
+            {
+                Flip();
+            }
         }
     }
 
-    public void makeJump()
+    public bool makeJump(float height)
     {
         if (canMove)
         {
+            float v = (float)Math.Sqrt(height * (-Physics2D.gravity.y * rb.gravityScale * 2));
             if (onGround)
             {
-                jump = true;
+                rb.AddForce(new Vector2(0, v), ForceMode2D.Impulse);
+                //rb.velocity = new Vector2(rb.velocity.x, power);
+                return true;
             }
-            else /*if(rb.velocity.y < jumpheight)*/
+            else if(!onGround) //(rb.velocity.y < jumpheight)
             {
-                if (onWall_r) {
-                    if(facingRight && doubleJumpRight)
-                    {
-                        Debug.Log("Fr = " + facingRight);
-                        Debug.Log("DJL = " + doubleJumpLeft + ";  DJR = " + doubleJumpRight);
-                        Debug.Log("\n\n\n\n");
-                        doubleJumpRight = false;
-                        doubleJumpLeft = true;
-                        jump = true;
-                    }
-                    else if (!facingRight && doubleJumpLeft)
-                    {
-                        doubleJumpRight = true;
-                        doubleJumpLeft = false;
-                        jump = true;
-                    }
+                // даблджамп
+                if (doubleJumpRight && onWall_r && !onWall_l)
+                {
+                    doubleJumpRight = false;
+                    doubleJumpLeft = true;
+                    Flip();
+                    rb.velocity = new Vector2(-movespeed, v);
+                    return true;
+                }
+                else if (doubleJumpLeft && onWall_l && !onWall_r)
+                {
+                    doubleJumpRight = true;
+                    doubleJumpLeft = false;
+                    Flip();
+                    rb.velocity = new Vector2(movespeed, v);
+                    return true;
+                    //rb.velocity = new Vector2(rb.velocity.x, power);
                 }
             }
         }
+        return false;
     }
 
 
@@ -136,36 +145,20 @@ public class Controls : MonoBehaviour
         {
             if (!(!onGround && onWall_l))
             {
-                moveLeft();
+                moveTo("left");
             }
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
             if (!(!onGround && onWall_r))
             {
-                moveRight();
+                moveTo("right");
             }
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            makeJump();
-        }
-
-
-
-        if (moving == "right")
-        {
-            moveRight();
-        }
-        if (moving == "left")
-        {
-            moveLeft();
-        }
-        if (jump)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpheight * jumpMultiplier);
-            jump = false;
+            makeJump(jumpheight);
         }
 
         //abilities
@@ -173,6 +166,14 @@ public class Controls : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.X)) switchMode('x'); // x - speed
         else if (Input.GetKeyDown(KeyCode.C)) switchMode('c'); // c - jump
         else if (Input.GetKeyDown(KeyCode.V)) switchMode('v'); // v - power
+
+        // reset
+        if (Input.GetKeyDown(KeyCode.R)){
+            SceneManager.LoadScene(Application.loadedLevel, LoadSceneMode.Single);
+            transform.position = savedPosition;
+            Debug.Log("moved");
+            cam.transform.position = savedPosition;
+        }
     }
 
     void FixedUpdate()
@@ -185,7 +186,7 @@ public class Controls : MonoBehaviour
         }
         onWall_l = Physics2D.OverlapCircle(wallCheckL.position, groundCheckRadius, whatIsWall);
         onWall_r = Physics2D.OverlapCircle(wallCheckR.position, groundCheckRadius, whatIsWall);
-        onCeil = Physics2D.OverlapCircle(ceilCheck.position, groundCheckRadius, whatIsWall);
+        onCeil = Physics2D.OverlapCircle(ceilCheck.position, groundCheckRadius-0.05f, whatIsGround);
     }
 
     void Flip() // flipping player's view
@@ -193,6 +194,67 @@ public class Controls : MonoBehaviour
         //sr.flipX = facingRight;
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         facingRight = !facingRight;
+        // Меняем местами левый и правый чек
+        Vector3 tmp = wallCheckL.position;
+        wallCheckL.position = wallCheckR.position;
+        wallCheckR.position = tmp;
+        // Вращаем свет
+        /*
+        tmp = lightTransform.localScale;
+        lightTransform.localScale = new Vector3(tmp.x * -1, tmp.y, tmp.z);*/
+    }
+
+    void particleBurst(string mode) // boost, leap
+    {
+        ParticleSystem ps = GetComponent<ParticleSystem>();
+        var vot = ps.velocityOverLifetime;
+        var noise = ps.noise;
+        if (mode == "size")
+        {
+            ps.startColor = new Color(0.20f, 0.95f, 0.23f);
+            noise.strengthXMultiplier = 0;
+            noise.strengthYMultiplier = 1;
+
+            vot.enabled = true;
+            vot.x = 0;
+            vot.y = 0.5f;
+        }
+        else if (mode == "boost")
+        {
+            ps.startColor = new Color(0.85f, 0.85f, 0.35f);
+            
+            noise.strengthXMultiplier = 0;
+            noise.strengthYMultiplier = 3;
+            
+            vot.enabled = false;
+            vot.x = 0;
+            vot.y = 0;
+        }
+        else if(mode == "leap")
+        {
+            ps.startColor = new Color(0.25f, 0.27f, 0.95f);
+
+            noise.strengthXMultiplier = 3;
+            noise.strengthYMultiplier = 0;
+
+            vot.enabled = false;
+            vot.x = 0;
+            vot.y = 0;
+        }
+        else if (mode == "power")
+        {
+            ps.startColor = new Color(0.95f, 0.3f, 0.2f);
+
+            noise.strengthXMultiplier = 1;
+            noise.strengthYMultiplier = 3;
+
+            vot.enabled = true;
+            vot.x = facingRight ? 10 : -10;
+            vot.y = 0;
+        }
+
+        ps.Stop();
+        ps.Play();
     }
 
     void switchInd(char ind)
@@ -231,10 +293,10 @@ public class Controls : MonoBehaviour
                 if (mode != 'z')
                 {
                     resetMode();
-                    speedMultiplier = 0.8f;
-                    jumpMultiplier = 0.8f;
                     transform.localScale /= 2;
+                    cam.orthographicSize /= 2;
                     mode = 'z';
+                    particleBurst("size");
                     switchInd('z');
                 }
                 else resetMode();
@@ -242,7 +304,7 @@ public class Controls : MonoBehaviour
         }
 
         else if (c == 'x') // --------------- speed
-        {  
+        {  /*
             if (mode == 'z' && !onCeil || mode != 'z')
             {
                 if (mode != 'x') {
@@ -252,27 +314,34 @@ public class Controls : MonoBehaviour
                     switchInd('x');
                 }
                 else resetMode();
+            }*/
+            if (onGround)
+            {
+                particleBurst("boost");
+                rb.velocity = new Vector2(boostPower * (facingRight ? 1 : -1), rb.velocity.y);
             }
+
         }
 
         else if (c == 'c') // --------------- jump
-        {
+        {/*
             if (mode == 'z' && !onCeil || mode != 'z')
             {
                 if (mode != 'c')
                 {
                     resetMode();
-                    jumpMultiplier = 1.3f;
                     mode = 'c';
                     switchInd('c');
                 }
                 else resetMode();
+            }*/
+            if (makeJump(leapPower)) {
+                particleBurst("leap");
             }
         }
 
         else if (c == 'v') // --------------- power
-        {
-            
+        {/*            
             if (mode == 'z' && !onCeil || mode != 'z')
             {
                 if (mode != 'v')
@@ -282,15 +351,44 @@ public class Controls : MonoBehaviour
                     switchInd('v');
                 }
                 else resetMode();
+            }*/
+            particleBurst("power");
+            Vector3 pos = transform.position;
+            pos.x += facingRight ? 0.5f : -0.5f;
+            Collider2D[] collisions = Physics2D.OverlapCircleAll(pos, 1f, LayerMask.GetMask("PhysGround"));
+            if (collisions.Length > 0)
+            {
+                this.rb.AddForce(new Vector2(facingRight ? -35 : 35, 3), ForceMode2D.Impulse);
+                foreach (var col in collisions)
+                {
+                    var rb = col.GetComponent<Rigidbody2D>();
+                    rb.bodyType = RigidbodyType2D.Dynamic;
+                    Vector3 dir = (rb.transform.position - transform.position).normalized;
+                    dir.y += 0.5f;
+                    dir.x += UnityEngine.Random.Range(-0.2f, 0.3f);
+                    rb.AddForce(dir * 19, ForceMode2D.Impulse);
+                    try
+                    {
+                        WeakBlock wb = col.GetComponent<WeakBlock>();
+                        wb.startDestroying();
+                    }
+                    catch(Exception e)
+                    {
+
+                    }
+                }
+            }
+            else
+            {
+                rb.AddForce(new Vector2(facingRight ? -3 : 3, 3), ForceMode2D.Impulse);
             }
         };
     }
 
     void resetMode()
     {
-        jumpMultiplier = 1;
-        speedMultiplier = 1;
-        transform.localScale = new Vector3(defaultTransform.x * (facingRight ? 1 : -1), defaultTransform.y, transform.localScale.z);
+        cam.orthographicSize = 5;
+        transform.localScale = new Vector3(defaultTransform.x * (facingRight ? 1 : -1), defaultTransform.y, defaultTransform.z);
         mode = 'f';
         switchInd('f');
     }

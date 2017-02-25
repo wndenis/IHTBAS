@@ -9,11 +9,12 @@ TagManager:
   - Enemy
   - Wall
   - Obstacle
-  - Bullet
   - BombPickup
   - ExplosionFX
   - HealthBar
   - AbilityButton
+  - PhysBlock
+  - WeakBlock
   layers:
   - Default
   - TransparentFX
@@ -28,8 +29,8 @@ TagManager:
   - Enemies
   - Pickups
   - Ground
-  - Chaser
-  - Respawn
+  - PhysGround
+  - 
   - 
   - 
   - 

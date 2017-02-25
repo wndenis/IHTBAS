@@ -25,7 +25,7 @@ public class Touch : MonoBehaviour
     }
     public void Jump()
     {
-        player.makeJump();
+        player.makeJump(player.jumpheight);
     }
 
     public void Z()
