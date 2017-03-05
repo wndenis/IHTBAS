@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 19540b047b242794b8aca5c18ccdc119
+timeCreated: 1488210452
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: FuturaLight
+  fontNames:
+  - FuturaLight
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

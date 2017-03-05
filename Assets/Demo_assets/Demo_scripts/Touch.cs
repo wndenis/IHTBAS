@@ -13,15 +13,15 @@ public class Touch : MonoBehaviour
 
     public void Left()
     {
-        player.moving = "left";
+        //player.moving = "left";
     }
     public void Right()
     {
-        player.moving = "right";
+        //player.moving = "right";
     }
     public void stop()
     {
-        player.moving = "";
+        //player.moving = "";
     }
     public void Jump()
     {

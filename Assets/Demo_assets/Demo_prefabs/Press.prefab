@@ -39,7 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4042195118864356}
   - component: {fileID: 61144551500096382}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,6 +169,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4c07f2adf4457824e8c891f548a8495b, type: 3}
-  m_Color: {r: 0.10017935, g: 0.084203854, b: 0.14137931, a: 1}
+  m_Color: {r: 0.15882091, g: 0.13349392, b: 0.22413793, a: 1}
   m_FlipX: 0
   m_FlipY: 0
