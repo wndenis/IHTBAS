@@ -17,6 +17,10 @@ public class KinematicBlock : MonoBehaviour
     [HideInInspector] public float expansion = 2f;
     [HideInInspector] public float expansionTime = 1000f;
 
+    public bool reverseAtEnd = false;
+    public bool cycle = false;
+    public float delayAtEnd = 500f;
+
     public Transform[] startChain;
     public Transform[] endChain;
 
@@ -27,6 +31,10 @@ public class KinematicBlock : MonoBehaviour
 
     private Transform trfm;
 
+    private bool direct = true;
+
+    private int modX, modY = 0;
+
     // Use this for initialization
     void Start()
     {
@@ -34,9 +42,7 @@ public class KinematicBlock : MonoBehaviour
         expansionTime += 1;
         expansionTime /= 1000;
         delay /= 1000;
-
-        Pos = trfm.position;
-        Rot = trfm.rotation.eulerAngles;
+        delayAtEnd /= 1000;
         /*
         if(typeOfAngle != AngleType.Custom)
         {
@@ -45,30 +51,6 @@ public class KinematicBlock : MonoBehaviour
 
         newPos = new Vector3(Pos.x + expansion * Mathf.Cos(angle), Pos.y + expansion * Mathf.Sin(angle), Pos.z);
         */
-        int modX = 0;
-        int modY = 1;
-
-        if(typeOfAngle == AngleType.Left)
-        {
-            modX = -1;
-            modY = 0;
-        }
-        else if (typeOfAngle == AngleType.Down)
-        {
-            modX = 0;
-            modY = -1;
-        }
-        else if (typeOfAngle == AngleType.Right)
-        {
-            modX = 1;
-            modY = 0;
-        }
-
-
-
-        newPos = new Vector3(Pos.x + modX * expansion, Pos.y + modY * expansion, Pos.z);
-        newRot = new Vector3(Rot.x, Rot.y, rotation*360);
-
     }
 
     // Update is called once per frame
@@ -89,12 +71,35 @@ public class KinematicBlock : MonoBehaviour
                 {
                     try
                     {
-                        StartCoroutine(t.GetComponent<KinematicBlock>().StartAnim());
+                        StartCoroutine(t.GetComponent<KinematicBlock>().StartAnim(false));
                     }
                     catch (Exception e)
                     {
                         Debug.Log("Error: " + t.name);
                     }
+                }
+                if (reverseAtEnd)
+                {
+                    t = 0;
+                    Vector3 tmp = Pos;
+                    Pos = newPos;
+                    newPos = tmp;
+
+                    tmp = Rot;
+                    Rot = newRot;
+                    newRot = tmp;
+
+                    triggered = false;
+
+                    if (direct)
+                    {
+                        StartCoroutine(StartAnim(true));
+                    }
+                    else if (cycle)
+                    {
+                        StartCoroutine(StartAnim(false));
+                    }
+                    direct = !direct;
                 }
             }
         }
@@ -104,7 +109,7 @@ public class KinematicBlock : MonoBehaviour
         }*/
     }
 
-    IEnumerator StartAnim()
+    IEnumerator StartAnim(bool reverse)
     {
         if (!triggered)
         {
@@ -119,8 +124,46 @@ public class KinematicBlock : MonoBehaviour
 
                 }
             }
-            yield return new WaitForSeconds(delay);
+            foreach (Transform t in startChain)
+            {
+                StartCoroutine(t.GetComponent<KinematicBlock>().StartAnim(reverse));
+            }
+
+            
+            if (reverse)
+            {
+                Debug.Log("Started Reverse");
+                yield return new WaitForSeconds(delayAtEnd);
+            }
+            else yield return new WaitForSeconds(delay);
+
+            modX = 0;
+            modY = 1;
+
+            if (typeOfAngle == AngleType.Left)
+            {
+                modX = -1;
+                modY = 0;
+            }
+            else if (typeOfAngle == AngleType.Down)
+            {
+                modX = 0;
+                modY = -1;
+            }
+            else if (typeOfAngle == AngleType.Right)
+            {
+                modX = 1;
+                modY = 0;
+            }
+
+            Pos = trfm.position;
+            Rot = trfm.rotation.eulerAngles;
+
+            newPos = new Vector3(Pos.x + modX * expansion, Pos.y + modY * expansion, Pos.z);
+            newRot = new Vector3(Rot.x, Rot.y, rotation * 360);
+
             triggered = true;
+            finished = false;
         }
         else
         {
@@ -132,11 +175,7 @@ public class KinematicBlock : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            StartCoroutine(StartAnim());
-            foreach (Transform t in startChain)
-            {
-                StartCoroutine(t.GetComponent<KinematicBlock>().StartAnim());
-            }
+            StartCoroutine(StartAnim(false));
         }
     }
 }

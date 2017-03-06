@@ -72,5 +72,8 @@ MonoBehaviour:
   delay: 100
   expansion: 2
   expansionTime: 1000
+  reverseAtEnd: 0
+  cycle: 0
+  delayAtEnd: 500
   startChain: []
   endChain: []

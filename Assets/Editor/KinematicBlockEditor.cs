@@ -16,6 +16,9 @@ public class KinematicBlockEditor : Editor
     SerializedProperty startChain;
     SerializedProperty endChain;
     SerializedProperty rotation;
+    SerializedProperty reverseAtEnd;
+    SerializedProperty cycle;
+    SerializedProperty delayAtEnd;
 
 
     //Передаём этому скрипту компонент и необходимые в редакторе поля
@@ -31,6 +34,9 @@ public class KinematicBlockEditor : Editor
         expansionTime = serializedObject.FindProperty("expansionTime");
         startChain = serializedObject.FindProperty("startChain");
         endChain = serializedObject.FindProperty("endChain");
+        reverseAtEnd = serializedObject.FindProperty("reverseAtEnd");
+        cycle = serializedObject.FindProperty("cycle");
+        delayAtEnd = serializedObject.FindProperty("delayAtEnd");
     }
 
     //Переопределяем событие отрисовки компонента
@@ -59,6 +65,14 @@ public class KinematicBlockEditor : Editor
 
         EditorGUILayout.Space();
         EditorGUILayout.Slider(rotation, -100, 100, new GUIContent("Rotations"));
+
+        EditorGUILayout.Space();
+        EditorGUILayout.PropertyField(reverseAtEnd);
+        if (reverseAtEnd.boolValue)
+        {
+            EditorGUILayout.PropertyField(delayAtEnd);
+            EditorGUILayout.PropertyField(cycle);
+        }
 
         EditorGUILayout.Space();
         EditorGUILayout.PropertyField(startChain, true);
