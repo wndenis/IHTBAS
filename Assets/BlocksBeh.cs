@@ -5,7 +5,7 @@ using System.Collections;
 public class BlocksBeh : MonoBehaviour
 {
     public GameObject pathTile;
-    private List<Object> objs;
+    //private List<Object> objs;
 
 
     public float speed = 35;
@@ -31,7 +31,7 @@ public class BlocksBeh : MonoBehaviour
     {
         t = GetComponent<Transform>();
         way = new List<Vector3>();
-        objs = new List<Object>();
+        //objs = new List<Object>();
         chain = new List<BlocksBeh>();
         moving = false;
         height = getHeight();

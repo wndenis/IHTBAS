@@ -5,7 +5,7 @@ public class Remover : MonoBehaviour
 {
 	public GameObject splash;
 
-
+    /*
 	void OnTriggerEnter2D(Collider2D col)
 	{
 		// If the player hits the trigger...
@@ -43,5 +43,5 @@ public class Remover : MonoBehaviour
 		yield return new WaitForSeconds(2);
 		// ... and then reload the level.
 		Application.LoadLevel(Application.loadedLevel);
-	}
+	}*/
 }

@@ -59,10 +59,7 @@ public class Press : MonoBehaviour {
                     {
                         StartCoroutine(t.GetComponent<Press>().StartAnim());
                     }
-                    catch(Exception e)
-                    {
-                        Debug.Log("Error: " + t.name);
-                    }
+                    finally{/*Debug.Log("Error: " + t.name);*/}
                 }
             }
         }

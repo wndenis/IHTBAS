@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/lvl_1.unity
+- path: Assets/lvl_2_chase.unity
   isLoaded: 1
   isActive: 1

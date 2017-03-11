@@ -8,14 +8,12 @@ public class KinematicBlockEditor : Editor
 {
     KinematicBlock subject;
     SerializedProperty typeOfAngle;
-    SerializedProperty angle;
 
     SerializedProperty delay;
     SerializedProperty expansion;
     SerializedProperty expansionTime;
     SerializedProperty startChain;
     SerializedProperty endChain;
-    SerializedProperty rotation;
     SerializedProperty reverseAtEnd;
     SerializedProperty cycle;
     SerializedProperty delayAtEnd;
@@ -27,8 +25,6 @@ public class KinematicBlockEditor : Editor
         subject = target as KinematicBlock;
 
         typeOfAngle = serializedObject.FindProperty("typeOfAngle");
-        angle = serializedObject.FindProperty("angle");
-        rotation = serializedObject.FindProperty("rotation");
         delay = serializedObject.FindProperty("delay");
         expansion = serializedObject.FindProperty("expansion");
         expansionTime = serializedObject.FindProperty("expansionTime");
@@ -50,6 +46,7 @@ public class KinematicBlockEditor : Editor
 
         //Вывод в редактор выпадающего меню
         EditorGUILayout.PropertyField(typeOfAngle);
+        /*
         //Проверка выбранного пункта в выпадающем меню, 
         if (subject.typeOfAngle == KinematicBlock.AngleType.Custom)
         {
@@ -57,14 +54,13 @@ public class KinematicBlockEditor : Editor
             EditorGUILayout.Slider(angle, 0, 359, new GUIContent("Angle"));
             //compName.stringValue = "First";
 
-        }
+        }*/
         EditorGUILayout.Space();
         EditorGUILayout.PropertyField(delay);
         EditorGUILayout.PropertyField(expansion);
         EditorGUILayout.PropertyField(expansionTime);
 
         EditorGUILayout.Space();
-        EditorGUILayout.Slider(rotation, -100, 100, new GUIContent("Rotations"));
 
         EditorGUILayout.Space();
         EditorGUILayout.PropertyField(reverseAtEnd);

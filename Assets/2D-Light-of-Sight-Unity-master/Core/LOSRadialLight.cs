@@ -113,8 +113,9 @@ namespace LOS {
 						currentVertexIndex = meshVertices.Count - 1;
 						
 					}
-					else if (previousHitGo != hitGo) {
-						if (previousHitGo == null) {
+                    else if (previousHitGo != hitGo)
+                    {
+                        if (previousHitGo == null) {
 							meshVertices.Add(hitPoint - position);
 							previousVectexIndex = currentVertexIndex;
 							currentVertexIndex = meshVertices.Count - 1;

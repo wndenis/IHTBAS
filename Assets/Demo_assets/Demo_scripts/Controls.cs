@@ -13,6 +13,7 @@ public class Controls : MonoBehaviour
     private Vector3 savedPosition;
 
     private Vector3 defaultTransform;
+    private float defaultCamTransform;
 
     public Camera cam;
     
@@ -31,7 +32,6 @@ public class Controls : MonoBehaviour
     public float boostPower = 41;
     public float leapPower = 34;
 
-    private char mode;
     private bool canMove;
     private bool canJump;
     private float trailTime;
@@ -58,14 +58,21 @@ public class Controls : MonoBehaviour
     public int leapCharges = 0;
     public int powerCharges = 0;
 
+    private bool sizeMode = false;
+    private bool boostMode = false;
+    private bool leapMode = false;
+    private bool powerMode = false;
+
     public void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         trfm = GetComponent<Transform>();
-        defaultTransform = trfm.localScale;
-        savedPosition = trfm.position;
         tr = GetComponent<TrailRenderer>();
+
+        defaultTransform = trfm.localScale;
+        defaultCamTransform = cam.orthographicSize;
+        savedPosition = trfm.position;
 
         canMove = true;
         canJump = true;
@@ -113,16 +120,15 @@ public class Controls : MonoBehaviour
 
         // reset
         if (Input.GetKeyDown(KeyCode.R)){
-            SceneManager.LoadScene(Application.loadedLevel, LoadSceneMode.Single);
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.buildIndex, LoadSceneMode.Single);
             trfm.position = savedPosition;
             cam.transform.position = savedPosition;
         }
 
+        CheckModes();
         CheckTrail();
-        if(facingRight && onWall_r || !facingRight && onWall_l)
-        {
-            canMove = true;
-        }
+
     }
 
     void FixedUpdate()
@@ -225,6 +231,16 @@ public class Controls : MonoBehaviour
         }
     }
 
+    private void CheckModes()
+    {
+        if (boostMode && Math.Abs(rb.velocity.x) < 1) // если после рывка воткнулись в стену, то рывок останавливается
+        {
+            boostMode = false;
+            trailTime = 0;
+        }
+        
+    }
+
     void particleBurst(string mode) // boost, leap
     {
         //tr.colorGradient.alphaKeys[0] = new GradientAlphaKey(1, 0);
@@ -237,43 +253,45 @@ public class Controls : MonoBehaviour
         {
             canMove = false;
             tr.startColor = xC;
+            trailTime = 0.5f;
         }
         else if(mode == "leap")
         {
             tr.startColor = cC;
+            trailTime = 1.1f;
         }
         else if (mode == "power")
         {
             tr.startColor = vC;
+            trailTime = 1.1f;
         }
-        trailTime = 1.1f;
+        
     }
 
     public void switchMode(char c)
     {
         if (c == 'z') // --------------- squeeze
         {
-            if (mode == 'z' && !onCeil || mode != 'z' && sizeCharges > 0)
+            if (!sizeMode && sizeCharges > 0)
             {
-                if (mode != 'z')
-                {
-                    resetMode();
-                    sizeCharges--;
-                    trfm.localScale /= 2;
-                    cam.orthographicSize /= 2;
-                    tr.startWidth /= 2;
-                    sizeK = 0.65f;
-                    mode = 'z';
-                    particleBurst("size");
-                }
-                else resetMode();
+                resetMode();
+                sizeCharges--;
+                trfm.localScale /= 2;
+                cam.orthographicSize /= 2;
+                tr.startWidth /= 2;
+                sizeK = 0.65f;
+                sizeMode = true;
+                particleBurst("size");
             }
+            else if(sizeMode && !onCeil)
+            resetMode();
         }
 
         else if (c == 'x') // --------------- speed
         {  
             if (onGround && boostCharges > 0)
             {
+                boostMode = true;
                 boostCharges--;
                 particleBurst("boost");
                 rb.velocity = new Vector2(boostPower * (facingRight ? 1 : -1), rb.velocity.y);
@@ -283,6 +301,7 @@ public class Controls : MonoBehaviour
         else if (c == 'c') // --------------- jump
         {
             if (leapCharges > 0 && makeJump(leapPower) ) {
+                leapMode = true;
                 leapCharges--;
                 particleBurst("leap");
             }
@@ -292,6 +311,7 @@ public class Controls : MonoBehaviour
         {
             if (powerCharges > 0)
             {
+                powerMode = true;
                 powerCharges--;
                 particleBurst("power");
                 Vector3 pos = trfm.position;
@@ -300,21 +320,22 @@ public class Controls : MonoBehaviour
                 Collider2D[] collisionsGround = Physics2D.OverlapCircleAll(pos, 0.15f, LayerMask.GetMask("Ground"));
                 if (collisionsPhys.Length > 0)
                 {
-                    this.rb.AddForce(new Vector2(facingRight ? -2 : 2, 3), ForceMode2D.Impulse);
+                    this.rb.AddForce(new Vector2(facingRight ? -3 : 3, 3), ForceMode2D.Impulse);
                     foreach (var col in collisionsPhys)
                     {
-                        var rb = col.GetComponent<Rigidbody2D>();
-                        rb.bodyType = RigidbodyType2D.Dynamic;
+                        //var rb = col.GetComponent<Rigidbody2D>();
+                        var rb = col.GetComponent<Transform>();
+                        //rb.bodyType = RigidbodyType2D.Dynamic;
                         Vector3 dir = (rb.transform.position - trfm.position).normalized;
                         dir.y += 0.5f;
                         dir.x += UnityEngine.Random.Range(-0.2f, 0.3f);
-                        rb.AddForce(dir * 19, ForceMode2D.Impulse);
+                        //rb.AddForce(dir * 19, ForceMode2D.Impulse);
                         try
                         {
                             WeakBlock wb = col.GetComponent<WeakBlock>();
                             wb.startDestroying();
                         }
-                        catch (Exception e){}
+                        finally { }
                     }
                 }
                 else if (collisionsGround.Length > 0)
@@ -331,11 +352,11 @@ public class Controls : MonoBehaviour
 
     void resetMode()
     {
-        cam.orthographicSize = 5;
+        cam.orthographicSize = defaultCamTransform;
         tr.startWidth = 1;
         sizeK = 1;
         trfm.localScale = new Vector3(defaultTransform.x * (facingRight ? 1 : -1), defaultTransform.y, defaultTransform.z);
-        mode = 'f';
+        sizeMode = false;
     }
 
     public void switchMove(bool v)

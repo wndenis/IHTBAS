@@ -1,0 +1,107 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class LightFlow : MonoBehaviour {
+    public LayerMask layers;
+    
+    public float distance = 100;
+    [Range(0,25)]
+    public int bounces = 1;
+    public Transform lightPrefab;
+
+    private List<Transform> lights;
+    private LineRenderer line;
+    private List<Vector3> points;
+    private RaycastHit2D[] hits;
+
+    // Use this for initialization
+    void Start () {
+        line = GetComponent<LineRenderer>();
+        points = new List<Vector3>();
+        lights = new List<Transform>();
+        Physics2D.queriesStartInColliders = false;
+    }
+
+    // Update is called once per frame
+    void Update () {
+        drawRay();
+	}
+
+
+    void drawRay()
+    {
+        for(int j = 0; j < lights.Count; j++)
+        {
+            //print("L:" + lights[j].position + " P:" + points[j]);
+            if (lights[j].position.x != points[j].x || lights[j].position.y != points[j].y)
+            {
+                for(int k = j; k < lights.Count; k++)
+                    Destroy(lights[k].gameObject);
+                //print("Destroyed " + (lights.Count - j) + "/" + lights.Count + " objects");
+                lights.RemoveRange(j, lights.Count - j);
+                break;
+            }
+        }
+        
+        //line.enabled = true;
+        Ray2D ray = new Ray2D(transform.position, transform.right * distance);
+
+        points.Clear();
+        points.Add(ray.origin);
+        Vector2 direction = transform.up;
+        Vector2 newDirection = Vector2.zero;
+        int i = 0;
+        int layer;
+        do
+        {
+            hits = Physics2D.RaycastAll(points[points.Count - 1], direction, distance, layers);
+            foreach (RaycastHit2D hit in hits)
+            {
+
+                if (hit && hit.collider != null && !hit.collider.isTrigger)
+                {
+                    layer = hit.transform.gameObject.layer;
+                    if (layer != LayerMask.NameToLayer("Reflectors") && layer != LayerMask.NameToLayer("Transparents"))
+                    {
+                        points.Add(hit.point);
+                        //Debug.DrawRay(points[i], direction, Color.blue);
+                        i = bounces;
+                        break;
+                    }
+                    else // if (layer == LayerMask.NameToLayer("Reflectors"))
+                    {
+                        points.Add(hit.point + hit.normal * 0.001f);
+                        newDirection = Vector2.Reflect((points[points.Count - 1] - (points[points.Count - 2])).normalized, hit.normal);
+                        Debug.DrawRay(points[i], direction, Color.cyan);
+                        if (newDirection != direction)
+                        {
+                            direction = newDirection;
+                            break;
+                        }
+                        else
+                        {
+                            i = bounces;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        while (i++ < bounces);
+
+        for (int j = lights.Count; j < points.Count; j++)
+        {
+            Transform l = Instantiate(lightPrefab);
+            l.transform.position = new Vector3(points[j].x, points[j].y, l.transform.position.z);
+            lights.Add(l);
+        }
+
+
+
+        line.numPositions = points.Count;
+        line.SetPositions(points.ToArray());
+        //line.enabled = false;
+    }
+}

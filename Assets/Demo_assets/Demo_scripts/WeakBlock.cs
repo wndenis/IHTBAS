@@ -6,10 +6,13 @@ public class WeakBlock : MonoBehaviour {
     private ParticleSystem ps;
     private SpriteRenderer sr;
     private BoxCollider2D bc2d;
+    private Vector3 startPos;
+    private Transform trfm;
 
 	// Use this for initialization
 	void Start () {
-
+        trfm = GetComponent<Transform>();
+        startPos = trfm.position;
     }
 	
 	// Update is called once per frame
@@ -20,6 +23,10 @@ public class WeakBlock : MonoBehaviour {
             {
                 Destroy(gameObject);
             }
+        }
+        else if (startPos != trfm.position)
+        {
+            startDestroying();
         }
 	}
 
