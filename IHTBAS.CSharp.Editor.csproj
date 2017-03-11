@@ -114,10 +114,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="IHTBAS.CSharp.Plugins.csproj">
-      <Project>{5DCD3BD4-3F7F-AB83-1A54-BFBD26B56B78}</Project>
-      <Name>IHTBAS.CSharp.Plugins</Name>
-    </ProjectReference>
     <ProjectReference Include="IHTBAS.CSharp.csproj">
       <Project>{7AE7BDE7-117D-D89F-E066-6F62C68DF4D3}</Project>
       <Name>IHTBAS.CSharp</Name>
@@ -129,6 +125,7 @@
     <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Editor\LOSMenu.cs" />
     <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Editor\LOSRadialLightEditor.cs" />
     <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
+    <Compile Include="Assets\Editor\KinematicBlockEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\2D-Light-of-Sight-Unity-master\Resources\Shaders\Basic.shader" />
@@ -137,8 +134,6 @@
     <None Include="Assets\2D-Light-of-Sight-Unity-master\Resources\Shaders\RadialLight.shader" />
     <None Include="Assets\2D-Light-of-Sight-Unity-master\Resources\Shaders\RadialLightPlus.shader" />
     <None Include="Assets\Demo_assets\Demo_shaders\$CutoutBump.shader" />
-    <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
-    <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

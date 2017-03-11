@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4555555902766848}
   - component: {fileID: 212582764146651450}
   - component: {fileID: 50944978633928464}
-  - component: {fileID: 61190606881209586}
+  - component: {fileID: 58984222653891254}
   m_Layer: 17
   m_Name: GlassBlock
   m_TagString: Untagged
@@ -62,8 +62,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61190606881209586
-BoxCollider2D:
+--- !u!58 &58984222653891254
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -75,7 +75,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.975, y: 0.975}
+  m_Radius: 0.495
 --- !u!212 &212582764146651450
 SpriteRenderer:
   m_ObjectHideFlags: 1

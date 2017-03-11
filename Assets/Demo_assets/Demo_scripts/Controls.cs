@@ -323,17 +323,20 @@ public class Controls : MonoBehaviour
                     this.rb.AddForce(new Vector2(facingRight ? -3 : 3, 3), ForceMode2D.Impulse);
                     foreach (var col in collisionsPhys)
                     {
-                        //var rb = col.GetComponent<Rigidbody2D>();
                         var rb = col.GetComponent<Transform>();
                         //rb.bodyType = RigidbodyType2D.Dynamic;
                         Vector3 dir = (rb.transform.position - trfm.position).normalized;
                         dir.y += 0.5f;
                         dir.x += UnityEngine.Random.Range(-0.2f, 0.3f);
-                        //rb.AddForce(dir * 19, ForceMode2D.Impulse);
+
                         try
                         {
+                            var rbblock = col.GetComponent<Rigidbody2D>();
+                            if(rbblock)
+                                rbblock.AddForce(dir * 19, ForceMode2D.Impulse);
                             WeakBlock wb = col.GetComponent<WeakBlock>();
-                            wb.startDestroying();
+                            if(wb)
+                                wb.startDestroying();
                         }
                         finally { }
                     }

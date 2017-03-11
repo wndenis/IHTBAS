@@ -75,12 +75,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="IHTBAS.CSharp.Plugins.csproj">
-      <Project>{5DCD3BD4-3F7F-AB83-1A54-BFBD26B56B78}</Project>
-      <Name>IHTBAS.CSharp.Plugins</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Core\Event\LOSEventManager.cs" />
     <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Core\Event\LOSEventSource.cs" />
     <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Core\Event\LOSEventTrigger.cs" />
@@ -105,16 +99,17 @@
     <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Utilities\SMath.cs" />
     <Compile Include="Assets\BlocksBeh.cs" />
     <Compile Include="Assets\BlocksManager.cs" />
-    <Compile Include="Assets\Demo_assets\Demo_scripts\BaseEnemy.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\Camera2DFollow.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\CameraRotation.cs" />
+    <Compile Include="Assets\Demo_assets\Demo_scripts\CameraShake.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\ChargePod.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\Controls.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\FallingBlock.cs" />
-    <Compile Include="Assets\Demo_assets\Demo_scripts\Hurt.cs" />
+    <Compile Include="Assets\Demo_assets\Demo_scripts\KinematicBlock.cs" />
+    <Compile Include="Assets\Demo_assets\Demo_scripts\LightFlow.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\Press.cs" />
-    <Compile Include="Assets\Demo_assets\Demo_scripts\SavePoint.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\Touch.cs" />
+    <Compile Include="Assets\Demo_assets\Demo_scripts\TriggerCameraShaker.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\WeakBlock.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\debugGUI.cs" />
     <Compile Include="Assets\ObjectWidthHeight.cs" />
@@ -134,8 +129,6 @@
     <None Include="Assets\2D-Light-of-Sight-Unity-master\Resources\Shaders\RadialLight.shader" />
     <None Include="Assets\2D-Light-of-Sight-Unity-master\Resources\Shaders\RadialLightPlus.shader" />
     <None Include="Assets\Demo_assets\Demo_shaders\$CutoutBump.shader" />
-    <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
-    <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
