@@ -6,7 +6,7 @@ using UnityEditor;
 
 public class KinematicBlockEditor : Editor
 {
-    KinematicBlock subject;
+    //KinematicBlock subject;
     SerializedProperty typeOfAngle;
 
     SerializedProperty delay;
@@ -22,7 +22,7 @@ public class KinematicBlockEditor : Editor
     //Передаём этому скрипту компонент и необходимые в редакторе поля
     void OnEnable()
     {
-        subject = target as KinematicBlock;
+        //subject = target as KinematicBlock;
 
         typeOfAngle = serializedObject.FindProperty("typeOfAngle");
         delay = serializedObject.FindProperty("delay");

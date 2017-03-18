@@ -1,0 +1,84 @@
+Mono path[0] = 'C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/Cubic_demo_1/cubic_Data/Managed'
+Mono path[1] = 'C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/Cubic_demo_1/cubic_Data/Mono'
+Mono config path = 'C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/Cubic_demo_1/cubic_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/Cubic_demo_1/cubic_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55181
+Multi-casting "[IP] 192.168.1.2 [Port] 55181 [Flags] 2 [Guid] 3720876217 [EditorId] 2982098811 [Version] 1048832 [Id] WindowsPlayer(WinDA-10) [Debug] 0" to [225.0.0.222:54997]...
+Started listening to [0.0.0.0:55181]
+PlayerConnection already initialized - listening to [0.0.0.0:55181]
+Initialize engine version: 5.5.1f1 (88d00a7498cd)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [aticfx32.dll 21.19.413.0]
+    Renderer: AMD Radeon R7 200 Series
+    Vendor:   ATI
+    VRAM:     1005 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 INTZ=1 NULL=1 RESZ=1 SlowINTZ=1 ATOC=0 BC4=1 BC5=1
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\Cubic_demo_1\cubic_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\Cubic_demo_1\cubic_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\Cubic_demo_1\cubic_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\Cubic_demo_1\cubic_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\Cubic_demo_1\cubic_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\Cubic_demo_1\cubic_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\Cubic_demo_1\cubic_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\Cubic_demo_1\cubic_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\Cubic_demo_1\cubic_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\Cubic_demo_1\cubic_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\Cubic_demo_1\cubic_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\Cubic_demo_1\cubic_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\Cubic_demo_1\cubic_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\Cubic_demo_1\cubic_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.377 seconds
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\Cubic_demo_1\cubic_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\Cubic_demo_1\cubic_Data\Managed\System.dll (this message is harmless)
+desktop: 1440x900 60Hz; virtual: 2806x900 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.511232 ms
+Saved
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+SavePoint:OnTriggerEnter2D(Collider2D) (at C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Assets\Demo_assets\Demo_scripts\SavePoint.cs:22)
+ 
+(Filename: C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Assets/Demo_assets/Demo_scripts/SavePoint.cs Line: 22)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 106.538200 ms
+System memory in use before: 24.3 MB.
+System memory in use after: 25.0 MB.
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 15846.
+Total: 4.093487 ms (FindLiveObjects: 0.949538 ms CreateObjectMapping: 0.345254 ms MarkObjects: 2.758199 ms  DeleteObjects: 0.030720 ms)
+
+Saved
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+SavePoint:OnTriggerEnter2D(Collider2D) (at C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Assets\Demo_assets\Demo_scripts\SavePoint.cs:22)
+ 
+(Filename: C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Assets/Demo_assets/Demo_scripts/SavePoint.cs Line: 22)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 62.127384 ms
+System memory in use before: 24.1 MB.
+System memory in use after: 24.8 MB.
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 15846.
+Total: 3.863434 ms (FindLiveObjects: 0.906599 ms CreateObjectMapping: 0.264613 ms MarkObjects: 2.663245 ms  DeleteObjects: 0.027578 ms)
+
+Saved
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+SavePoint:OnTriggerEnter2D(Collider2D) (at C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Assets\Demo_assets\Demo_scripts\SavePoint.cs:22)
+ 
+(Filename: C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Assets/Demo_assets/Demo_scripts/SavePoint.cs Line: 22)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 431c -> priority: 1 

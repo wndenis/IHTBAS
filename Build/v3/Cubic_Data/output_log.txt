@@ -1,143 +1,47 @@
-Mono path[0] = 'C:/Users/яя/Documents/GitHub/IHTBAS/Build/v3/Cubic_Data/Managed'
-Mono path[1] = 'C:/Users/яя/Documents/GitHub/IHTBAS/Build/v3/Cubic_Data/Mono'
-Mono config path = 'C:/Users/яя/Documents/GitHub/IHTBAS/Build/v3/Cubic_Data/Mono/etc'
-PlayerConnection initialized from C:/Users/яя/Documents/GitHub/IHTBAS/Build/v3/Cubic_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55424
-Multi-casting "[IP] 192.168.43.185 [Port] 55424 [Flags] 2 [Guid] 1202798161 [EditorId] 3653130834 [Version] 1048832 [Id] WindowsPlayer(�) [Debug] 0" to [225.0.0.222:54997]...
-Started listening to [0.0.0.0:55424]
-PlayerConnection already initialized - listening to [0.0.0.0:55424]
+Mono path[0] = 'C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v3/Cubic_Data/Managed'
+Mono path[1] = 'C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v3/Cubic_Data/Mono'
+Mono config path = 'C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v3/Cubic_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v3/Cubic_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55336
+Multi-casting "[IP] 192.168.1.2 [Port] 55336 [Flags] 2 [Guid] 2928895191 [EditorId] 3653130834 [Version] 1048832 [Id] WindowsPlayer(WinDA-10) [Debug] 0" to [225.0.0.222:54997]...
+Started listening to [0.0.0.0:55336]
+PlayerConnection already initialized - listening to [0.0.0.0:55336]
 Initialize engine version: 5.5.1f1 (88d00a7498cd)
 GfxDevice: creating device client; threaded=1
 Direct3D:
-    Version:  Direct3D 9.0c [aticfx32.dll 8.17.10.1429]
-    Renderer: AMD Radeon(TM) R4 Graphics
+    Version:  Direct3D 9.0c [aticfx32.dll 21.19.413.0]
+    Renderer: AMD Radeon R7 200 Series
     Vendor:   ATI
-    VRAM:     2024 MB (via DXGI)
+    VRAM:     1005 MB (via DXGI)
     Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 INTZ=1 NULL=1 RESZ=1 SlowINTZ=1 ATOC=0 BC4=1 BC5=1
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\яя\Documents\GitHub\IHTBAS\Build\v3\Cubic_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\яя\Documents\GitHub\IHTBAS\Build\v3\Cubic_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\яя\Documents\GitHub\IHTBAS\Build\v3\Cubic_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\яя\Documents\GitHub\IHTBAS\Build\v3\Cubic_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\яя\Documents\GitHub\IHTBAS\Build\v3\Cubic_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\яя\Documents\GitHub\IHTBAS\Build\v3\Cubic_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\яя\Documents\GitHub\IHTBAS\Build\v3\Cubic_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\яя\Documents\GitHub\IHTBAS\Build\v3\Cubic_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\яя\Documents\GitHub\IHTBAS\Build\v3\Cubic_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
-Loading C:\Users\яя\Documents\GitHub\IHTBAS\Build\v3\Cubic_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-Platform assembly: C:\Users\яя\Documents\GitHub\IHTBAS\Build\v3\Cubic_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Users\яя\Documents\GitHub\IHTBAS\Build\v3\Cubic_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.126 seconds
-Platform assembly: C:\Users\яя\Documents\GitHub\IHTBAS\Build\v3\Cubic_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\яя\Documents\GitHub\IHTBAS\Build\v3\Cubic_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v3\Cubic_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v3\Cubic_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v3\Cubic_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v3\Cubic_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v3\Cubic_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v3\Cubic_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v3\Cubic_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v3\Cubic_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v3\Cubic_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v3\Cubic_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v3\Cubic_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v3\Cubic_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.354 seconds
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v3\Cubic_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v3\Cubic_Data\Managed\System.dll (this message is harmless)
 <RI> Initializing input.
 <RI> Input initialized.
-desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+desktop: 1440x900 60Hz; virtual: 2806x900 at 0,0
 <RI> Initialized touch support.
-UnloadTime: 4.638867 ms
+UnloadTime: 7.302368 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 604.131165 ms
-System memory in use before: 39.3 MB.
-System memory in use after: 40.0 MB.
+UnloadTime: 207.209152 ms
+System memory in use before: 40.3 MB.
+System memory in use after: 40.9 MB.
 
 Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 16459.
-Total: 13.588308 ms (FindLiveObjects: 4.023885 ms CreateObjectMapping: 1.096594 ms MarkObjects: 8.357257 ms  DeleteObjects: 0.083783 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 611.329651 ms
-System memory in use before: 39.2 MB.
-System memory in use after: 39.9 MB.
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 16459.
-Total: 15.413876 ms (FindLiveObjects: 4.677054 ms CreateObjectMapping: 0.988872 ms MarkObjects: 9.656755 ms  DeleteObjects: 0.086063 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 102.056229 ms
-System memory in use before: 39.1 MB.
-System memory in use after: 39.8 MB.
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 16459.
-Total: 13.650434 ms (FindLiveObjects: 3.950361 ms CreateObjectMapping: 0.788818 ms MarkObjects: 8.835449 ms  DeleteObjects: 0.072954 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 596.358093 ms
-System memory in use before: 39.3 MB.
-System memory in use after: 39.9 MB.
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 16459.
-Total: 13.338668 ms (FindLiveObjects: 4.038704 ms CreateObjectMapping: 0.777419 ms MarkObjects: 8.444460 ms  DeleteObjects: 0.072954 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 591.227966 ms
-System memory in use before: 39.3 MB.
-System memory in use after: 39.9 MB.
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 16459.
-Total: 15.585432 ms (FindLiveObjects: 4.707262 ms CreateObjectMapping: 0.938716 ms MarkObjects: 9.848260 ms  DeleteObjects: 0.086063 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 593.332214 ms
-System memory in use before: 39.3 MB.
-System memory in use after: 40.0 MB.
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 16459.
-Total: 14.379976 ms (FindLiveObjects: 4.294614 ms CreateObjectMapping: 0.831565 ms MarkObjects: 9.176853 ms  DeleteObjects: 0.071814 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 591.318542 ms
-System memory in use before: 39.3 MB.
-System memory in use after: 40.0 MB.
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 16459.
-Total: 13.470326 ms (FindLiveObjects: 3.978859 ms CreateObjectMapping: 0.793378 ms MarkObjects: 8.622286 ms  DeleteObjects: 0.072384 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 617.206543 ms
-System memory in use before: 39.3 MB.
-System memory in use after: 40.0 MB.
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 16459.
-Total: 13.674941 ms (FindLiveObjects: 4.071761 ms CreateObjectMapping: 0.784258 ms MarkObjects: 8.741977 ms  DeleteObjects: 0.072384 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 565.699646 ms
-System memory in use before: 39.4 MB.
-System memory in use after: 40.0 MB.
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 16459.
-Total: 15.788905 ms (FindLiveObjects: 4.765397 ms CreateObjectMapping: 0.942706 ms MarkObjects: 9.988469 ms  DeleteObjects: 0.087773 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 598.912659 ms
-System memory in use before: 39.4 MB.
-System memory in use after: 40.0 MB.
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 16459.
-Total: 15.928544 ms (FindLiveObjects: 4.915296 ms CreateObjectMapping: 0.947835 ms MarkObjects: 9.968521 ms  DeleteObjects: 0.092332 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 579.203613 ms
-System memory in use before: 39.4 MB.
-System memory in use after: 40.1 MB.
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 16459.
-Total: 15.801445 ms (FindLiveObjects: 4.751718 ms CreateObjectMapping: 0.950685 ms MarkObjects: 10.000439 ms  DeleteObjects: 0.094042 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 575.014404 ms
-System memory in use before: 39.5 MB.
-System memory in use after: 40.1 MB.
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 16459.
-Total: 16.317255 ms (FindLiveObjects: 4.707832 ms CreateObjectMapping: 0.944416 ms MarkObjects: 10.573244 ms  DeleteObjects: 0.086063 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 575.609985 ms
-System memory in use before: 39.5 MB.
-System memory in use after: 40.2 MB.
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 16459.
-Total: 15.973001 ms (FindLiveObjects: 4.767677 ms CreateObjectMapping: 0.942706 ms MarkObjects: 10.173705 ms  DeleteObjects: 0.084353 ms)
+Total: 4.908973 ms (FindLiveObjects: 1.107329 ms CreateObjectMapping: 0.342811 ms MarkObjects: 3.408214 ms  DeleteObjects: 0.027578 ms)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 349c -> priority: 1 
+  Thread -> id: 1e48 -> priority: 1 

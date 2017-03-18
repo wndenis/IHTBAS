@@ -2,10 +2,10 @@ Mono path[0] = 'C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v1
 Mono path[1] = 'C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v1/Cubic_Data/Mono'
 Mono config path = 'C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v1/Cubic_Data/Mono/etc'
 PlayerConnection initialized from C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v1/Cubic_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55429
-Multi-casting "[IP] 192.168.1.2 [Port] 55429 [Flags] 2 [Guid] 4122597488 [EditorId] 709246489 [Version] 1048832 [Id] WindowsPlayer(WinDA-10) [Debug] 0" to [225.0.0.222:54997]...
-Started listening to [0.0.0.0:55429]
-PlayerConnection already initialized - listening to [0.0.0.0:55429]
+PlayerConnection initialized network socket : 0.0.0.0 55270
+Multi-casting "[IP] 192.168.1.2 [Port] 55270 [Flags] 2 [Guid] 4136331486 [EditorId] 709246489 [Version] 1048832 [Id] WindowsPlayer(WinDA-10) [Debug] 0" to [225.0.0.222:54997]...
+Started listening to [0.0.0.0:55270]
+PlayerConnection already initialized - listening to [0.0.0.0:55270]
 Initialize engine version: 5.5.1f1 (88d00a7498cd)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -29,23 +29,14 @@ Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build
 Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v1\Cubic_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
 Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v1\Cubic_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v1\Cubic_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.320 seconds
+- Completed reload, in  0.362 seconds
 Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v1\Cubic_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v1\Cubic_Data\Managed\System.dll (this message is harmless)
 <RI> Initializing input.
 <RI> Input initialized.
 desktop: 1440x900 60Hz; virtual: 2806x900 at 0,0
 <RI> Initialized touch support.
-UnloadTime: 1.511581 ms
-Saved
-UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
-UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
-UnityEngine.Logger:Log(LogType, Object)
-UnityEngine.Debug:Log(Object)
-SavePoint:OnTriggerEnter2D(Collider2D) (at C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Assets\Demo_assets\Demo_scripts\SavePoint.cs:22)
- 
-(Filename: C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Assets/Demo_assets/Demo_scripts/SavePoint.cs Line: 22)
-
+UnloadTime: 7.818330 ms
 Saved
 UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
 UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
@@ -56,12 +47,12 @@ SavePoint:OnTriggerEnter2D(Collider2D) (at C:\Users\Public\Documents\Unity Proje
 (Filename: C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Assets/Demo_assets/Demo_scripts/SavePoint.cs Line: 22)
 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 58.234974 ms
+UnloadTime: 94.483246 ms
 System memory in use before: 25.8 MB.
-System memory in use after: 26.4 MB.
+System memory in use after: 26.5 MB.
 
 Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 15911.
-Total: 4.315162 ms (FindLiveObjects: 1.023197 ms CreateObjectMapping: 0.340367 ms MarkObjects: 2.915641 ms  DeleteObjects: 0.032465 ms)
+Total: 6.646768 ms (FindLiveObjects: 1.678448 ms CreateObjectMapping: 0.535162 ms MarkObjects: 4.373461 ms  DeleteObjects: 0.042938 ms)
 
 Saved
 UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
@@ -73,12 +64,21 @@ SavePoint:OnTriggerEnter2D(Collider2D) (at C:\Users\Public\Documents\Unity Proje
 (Filename: C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Assets/Demo_assets/Demo_scripts/SavePoint.cs Line: 22)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 58.553001 ms
+UnloadTime: 63.097866 ms
 System memory in use before: 25.7 MB.
 System memory in use after: 26.4 MB.
 
 Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 15911.
-Total: 5.997102 ms (FindLiveObjects: 1.528686 ms CreateObjectMapping: 0.410186 ms MarkObjects: 4.023668 ms  DeleteObjects: 0.032465 ms)
+Total: 5.380600 ms (FindLiveObjects: 1.372990 ms CreateObjectMapping: 0.428688 ms MarkObjects: 3.541917 ms  DeleteObjects: 0.034560 ms)
+
+Saved
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+SavePoint:OnTriggerEnter2D(Collider2D) (at C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Assets\Demo_assets\Demo_scripts\SavePoint.cs:22)
+ 
+(Filename: C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Assets/Demo_assets/Demo_scripts/SavePoint.cs Line: 22)
 
 Saved
 UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
@@ -90,46 +90,12 @@ SavePoint:OnTriggerEnter2D(Collider2D) (at C:\Users\Public\Documents\Unity Proje
 (Filename: C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Assets/Demo_assets/Demo_scripts/SavePoint.cs Line: 22)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 61.105232 ms
-System memory in use before: 25.8 MB.
-System memory in use after: 26.5 MB.
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 15911.
-Total: 4.021224 ms (FindLiveObjects: 0.800474 ms CreateObjectMapping: 0.267057 ms MarkObjects: 2.922623 ms  DeleteObjects: 0.029673 ms)
-
-Saved
-UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
-UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
-UnityEngine.Logger:Log(LogType, Object)
-UnityEngine.Debug:Log(Object)
-SavePoint:OnTriggerEnter2D(Collider2D) (at C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Assets\Demo_assets\Demo_scripts\SavePoint.cs:22)
- 
-(Filename: C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Assets/Demo_assets/Demo_scripts/SavePoint.cs Line: 22)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 56.055576 ms
+UnloadTime: 116.538025 ms
 System memory in use before: 25.9 MB.
 System memory in use after: 26.6 MB.
 
 Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 15911.
-Total: 4.136775 ms (FindLiveObjects: 0.935923 ms CreateObjectMapping: 0.273690 ms MarkObjects: 2.897488 ms  DeleteObjects: 0.028276 ms)
-
-Saved
-UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
-UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
-UnityEngine.Logger:Log(LogType, Object)
-UnityEngine.Debug:Log(Object)
-SavePoint:OnTriggerEnter2D(Collider2D) (at C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Assets\Demo_assets\Demo_scripts\SavePoint.cs:22)
- 
-(Filename: C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Assets/Demo_assets/Demo_scripts/SavePoint.cs Line: 22)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 93.609818 ms
-System memory in use before: 26.1 MB.
-System memory in use after: 26.8 MB.
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 15911.
-Total: 6.430329 ms (FindLiveObjects: 1.307360 ms CreateObjectMapping: 0.283465 ms MarkObjects: 4.800754 ms  DeleteObjects: 0.036305 ms)
+Total: 4.599326 ms (FindLiveObjects: 1.253250 ms CreateObjectMapping: 0.265661 ms MarkObjects: 3.049344 ms  DeleteObjects: 0.030022 ms)
 
 Saved
 UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
@@ -141,4 +107,4 @@ SavePoint:OnTriggerEnter2D(Collider2D) (at C:\Users\Public\Documents\Unity Proje
 (Filename: C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Assets/Demo_assets/Demo_scripts/SavePoint.cs Line: 22)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 393c -> priority: 1 
+  Thread -> id: 3b40 -> priority: 1 

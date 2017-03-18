@@ -15,6 +15,7 @@ TagManager:
   - AbilityButton
   - PhysBlock
   - WeakBlock
+  - LaserLightReactorPoint
   layers:
   - Default
   - TransparentFX
@@ -34,9 +35,9 @@ TagManager:
   - Airlocks
   - Reflectors
   - Transparents
-  - 
-  - 
-  - 
+  - Traps
+  - Mates
+  - LaserLightPoints
   - 
   - 
   - 

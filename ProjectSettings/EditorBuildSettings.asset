@@ -11,5 +11,7 @@ EditorBuildSettings:
     path: "Assets/\u0432\u0432\u0432.unity"
   - enabled: 0
     path: Assets/test_lvl.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/lvl_2_chase.unity
+  - enabled: 1
+    path: Assets/lvl_3.unity

@@ -8,6 +8,7 @@ public class WeakBlock : MonoBehaviour {
     private BoxCollider2D bc2d;
     private Vector3 startPos;
     private Transform trfm;
+    public Transform particles;
 
 	// Use this for initialization
 	void Start () {
@@ -26,18 +27,21 @@ public class WeakBlock : MonoBehaviour {
         }
         else if (startPos != trfm.position)
         {
-            startDestroying();
+            startDestroying(Vector2.zero);
         }
 	}
 
-    public void startDestroying()
+    public void startDestroying(Vector2 direction)
     {
-        ps = GetComponent<ParticleSystem>();
+        Transform particlesT = Instantiate(particles);
+        particlesT.position = trfm.position;
+        ps = particlesT.GetComponent<ParticleSystem>();
+        var psVelocity = ps.velocityOverLifetime;
+        psVelocity.x = direction.x;
+        psVelocity.y = direction.y;
         sr = GetComponent<SpriteRenderer>();
         bc2d = GetComponent<BoxCollider2D>();
-
         bc2d.enabled = false;
-        ps.Play();
-        sr.color = new Color(0, 0, 0, 0);
+        sr.color = Color.clear;
     }
 }

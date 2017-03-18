@@ -24,10 +24,11 @@ public class KinematicBlock : MonoBehaviour
 
     private bool triggered = false;
     private bool finished = false;
+    private bool delaying = false;
+    private bool blocked = false;
     private float t;
 
     private Vector3 newPos, Pos;
-    private int modX, modY = 0;
 
     private Rigidbody2D rb;
     private Transform trfm;
@@ -60,6 +61,7 @@ public class KinematicBlock : MonoBehaviour
             if (/*trfm.position == newPos && trfm.rotation.eulerAngles == newRot ||*/ t >= expansionTime)
             {
                 finished = true;
+                delaying = false;
                 //bc2d.enabled = true;
                 foreach (Transform t in endChain)
                 {
@@ -108,12 +110,48 @@ public class KinematicBlock : MonoBehaviour
         }
     }
 
+    public void Block()
+    {
+        blocked = true;
+    }
+
+    public bool isTriggered()
+    {
+        return (triggered && delaying) && !finished && !blocked;
+    }
+
+    public void StopAnim()
+    {
+        StopAllCoroutines();
+        finished = true;
+    }
+
+    public Vector3 getVectorAngle()
+    {
+        if (typeOfAngle == AngleType.Up)
+        {
+            return Vector3.up;
+        }
+        else if (typeOfAngle == AngleType.Left)
+        {
+            return Vector3.left;
+        }
+        else if (typeOfAngle == AngleType.Down)
+        {
+            return Vector3.down;
+        }
+        else// if (typeOfAngle == AngleType.Right)
+        {
+            return Vector3.right;
+        }
+    }
+
     IEnumerator StartAnim(bool reverse)
     {
-        
+        delaying = true;
         if (!triggered)
         {
-            bc2d.enabled = false;
+            //bc2d.enabled = false;
             foreach (Transform t in startChain)
             {
                 StartCoroutine(t.GetComponent<KinematicBlock>().StartAnim(reverse));
@@ -126,28 +164,8 @@ public class KinematicBlock : MonoBehaviour
             }
             else yield return new WaitForSeconds(delay);
 
-            if (typeOfAngle == AngleType.Up)
-            {
-                modX = 0;
-                modY = 1;
-            }
-            else if (typeOfAngle == AngleType.Left)
-            {
-                modX = -1;
-                modY = 0;
-            }
-            else if (typeOfAngle == AngleType.Down)
-            {
-                modX = 0;
-                modY = -1;
-            }
-            else if (typeOfAngle == AngleType.Right)
-            {
-                modX = 1;
-                modY = 0;
-            }
             Pos = trfm.position;
-            newPos = new Vector3(Pos.x + modX * expansion, Pos.y + modY * expansion, Pos.z);
+            newPos = Pos + getVectorAngle() * expansion;
 
             triggered = true;
             finished = false;

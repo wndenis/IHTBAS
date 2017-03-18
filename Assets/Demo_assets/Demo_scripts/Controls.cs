@@ -99,7 +99,7 @@ public class Controls : MonoBehaviour
                 moveTo("left");
             }
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow))
         {
             if (!(!onGround && onWall_r))
             {
@@ -126,6 +126,11 @@ public class Controls : MonoBehaviour
             cam.transform.position = savedPosition;
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         CheckModes();
         CheckTrail();
 
@@ -142,11 +147,6 @@ public class Controls : MonoBehaviour
         onWall_l = Physics2D.OverlapCircle(wallCheckL.position, groundCheckRadius, whatIsWall);
         onWall_r = Physics2D.OverlapCircle(wallCheckR.position, groundCheckRadius, whatIsWall);
         onCeil = Physics2D.OverlapCircle(ceilCheck.position, groundCheckRadius - 0.05f, whatIsGround);
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
     }
 
 
@@ -177,10 +177,9 @@ public class Controls : MonoBehaviour
             if (onGround)
             {
                 rb.AddForce(new Vector2(0, v), ForceMode2D.Impulse);
-                //rb.velocity = new Vector2(rb.velocity.x, power);
                 return true;
             }
-            else if (!onGround) //(rb.velocity.y < jumpheight)
+            else if (!onGround)
             {
                 // даблджамп
                 if (doubleJumpRight && onWall_r && !onWall_l)
@@ -335,8 +334,8 @@ public class Controls : MonoBehaviour
                             if(rbblock)
                                 rbblock.AddForce(dir * 19, ForceMode2D.Impulse);
                             WeakBlock wb = col.GetComponent<WeakBlock>();
-                            if(wb)
-                                wb.startDestroying();
+                            if (wb != null)
+                                wb.startDestroying(dir * 9f);
                         }
                         finally { }
                     }
