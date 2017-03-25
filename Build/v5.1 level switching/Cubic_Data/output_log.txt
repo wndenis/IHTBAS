@@ -1,0 +1,53 @@
+Mono path[0] = 'C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v5.1 level switching/Cubic_Data/Managed'
+Mono path[1] = 'C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v5.1 level switching/Cubic_Data/Mono'
+Mono config path = 'C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v5.1 level switching/Cubic_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v5.1 level switching/Cubic_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55460
+Multi-casting "[IP] 192.168.1.2 [Port] 55460 [Flags] 2 [Guid] 3004792926 [EditorId] 2791014383 [Version] 1048832 [Id] WindowsPlayer(WinDA-10) [Debug] 0" to [225.0.0.222:54997]...
+Started listening to [0.0.0.0:55460]
+PlayerConnection already initialized - listening to [0.0.0.0:55460]
+Initialize engine version: 5.5.1f1 (88d00a7498cd)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [aticfx32.dll 21.19.413.0]
+    Renderer: AMD Radeon R7 200 Series
+    Vendor:   ATI
+    VRAM:     1005 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 INTZ=1 NULL=1 RESZ=1 SlowINTZ=1 ATOC=0 BC4=1 BC5=1
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1 level switching\Cubic_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1 level switching\Cubic_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1 level switching\Cubic_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1 level switching\Cubic_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1 level switching\Cubic_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1 level switching\Cubic_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1 level switching\Cubic_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1 level switching\Cubic_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1 level switching\Cubic_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1 level switching\Cubic_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1 level switching\Cubic_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1 level switching\Cubic_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.136 seconds
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1 level switching\Cubic_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1 level switching\Cubic_Data\Managed\System.dll (this message is harmless)
+OnLevelWasLoaded was found on MatesManager
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoScriptCache.cpp Line: 382)
+
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1440x900 60Hz; virtual: 2806x900 at 0,0
+<RI> Initialized touch support.
+UnloadTime: 2.153915 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 70.962280 ms
+System memory in use before: 56.5 MB.
+System memory in use after: 56.9 MB.
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 13676.
+Total: 8.821980 ms (FindLiveObjects: 2.311706 ms CreateObjectMapping: 0.383655 ms MarkObjects: 5.976855 ms  DeleteObjects: 0.119041 ms)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 1cc8 -> priority: 1 

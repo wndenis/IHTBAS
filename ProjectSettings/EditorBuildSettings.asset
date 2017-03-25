@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/lvl_2_chase.unity
   - enabled: 1
     path: Assets/lvl_3.unity
+  - enabled: 1
+    path: Assets/testscene2.unity

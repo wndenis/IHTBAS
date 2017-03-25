@@ -8,6 +8,21 @@ public class Controls : MonoBehaviour
     [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public SpriteRenderer sr;
     [HideInInspector] public Transform trfm;
+
+    public static Controls controls = null;
+    void Awake()
+    {
+        if (controls == null)
+        {
+            controls = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (controls != this)
+            Destroy(gameObject);
+        
+    }
+
+
     private TrailRenderer tr;
 
     private Vector3 savedPosition;

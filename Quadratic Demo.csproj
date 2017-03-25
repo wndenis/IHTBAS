@@ -105,8 +105,10 @@
     <Compile Include="Assets\Demo_assets\Demo_scripts\Controls.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\FallingBlock.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\GameManager.cs" />
+    <Compile Include="Assets\Demo_assets\Demo_scripts\InGameSceneLoader.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\KinematicBlock.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\LightFlow.cs" />
+    <Compile Include="Assets\Demo_assets\Demo_scripts\MainCameraManager.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\Mate.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\MateBridge.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\MateCreator.cs" />
