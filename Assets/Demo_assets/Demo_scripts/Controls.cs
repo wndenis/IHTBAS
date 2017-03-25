@@ -113,8 +113,8 @@ public class Controls : MonoBehaviour
         }
 
         //abilities
-        if (Input.GetKeyDown(KeyCode.Z)) switchMode('z'); // z - squeeze
-        else if (Input.GetKeyDown(KeyCode.X)) switchMode('x'); // x - speed
+        //if (Input.GetKeyDown(KeyCode.Z)) switchMode('z'); // z - squeeze
+        if (Input.GetKeyDown(KeyCode.X)) switchMode('x'); // x - speed
         else if (Input.GetKeyDown(KeyCode.C)) switchMode('c'); // c - jump
         else if (Input.GetKeyDown(KeyCode.V)) switchMode('v'); // v - power
 
@@ -314,39 +314,41 @@ public class Controls : MonoBehaviour
                 powerCharges--;
                 particleBurst("power");
                 Vector3 pos = trfm.position;
-                pos.x += facingRight ? 0.5f : -0.5f;
-                Collider2D[] collisionsPhys = Physics2D.OverlapCircleAll(pos, 1.1f, LayerMask.GetMask("PhysGround"));
+                Collider2D[] collisionsPhys = Physics2D.OverlapCircleAll(pos, 3.5f, LayerMask.GetMask("PhysGround", "TransparentPhysGround"));
                 Collider2D[] collisionsGround = Physics2D.OverlapCircleAll(pos, 0.15f, LayerMask.GetMask("Ground"));
                 if (collisionsPhys.Length > 0)
                 {
-                    this.rb.AddForce(new Vector2(facingRight ? -3 : 3, 3), ForceMode2D.Impulse);
+                    //this.rb.AddForce(new Vector2(facingRight ? 6 : -6, 3), ForceMode2D.Impulse);
                     foreach (var col in collisionsPhys)
                     {
                         var rb = col.GetComponent<Transform>();
                         //rb.bodyType = RigidbodyType2D.Dynamic;
                         Vector3 dir = (rb.transform.position - trfm.position).normalized;
-                        dir.y += 0.5f;
+                        //dir.y += 0.5f;
                         dir.x += UnityEngine.Random.Range(-0.2f, 0.3f);
 
                         try
                         {
-                            var rbblock = col.GetComponent<Rigidbody2D>();
-                            if(rbblock)
-                                rbblock.AddForce(dir * 19, ForceMode2D.Impulse);
                             WeakBlock wb = col.GetComponent<WeakBlock>();
                             if (wb != null)
-                                wb.startDestroying(dir * 9f);
+                                wb.startDestroying(-dir * 3f);
+                            else
+                            {
+                                var rbblock = col.GetComponent<Rigidbody2D>();
+                                if (rbblock)
+                                    rbblock.AddForce(-dir * 1000, ForceMode2D.Force);
+                            }
                         }
                         finally { }
                     }
                 }
                 else if (collisionsGround.Length > 0)
                 {
-                    rb.AddForce(new Vector2(facingRight ? -30 : 30, 3), ForceMode2D.Impulse);
+                    //rb.AddForce(new Vector2(facingRight ? 30 : -30, 3), ForceMode2D.Impulse);
                 }
                 else
                 {
-                    rb.AddForce(new Vector2(facingRight ? -1 : 1, 3), ForceMode2D.Impulse);
+                    //rb.AddForce(new Vector2(facingRight ? 1 : -1, 3), ForceMode2D.Impulse);
                 }
             }
         }

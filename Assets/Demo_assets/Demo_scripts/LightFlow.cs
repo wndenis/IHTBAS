@@ -96,7 +96,9 @@ public class LightFlow : MonoBehaviour {
                     else
                     {
                         layer = hit.transform.gameObject.layer;
-                        if (layer != LayerMask.NameToLayer("Reflectors") && layer != LayerMask.NameToLayer("Transparents"))
+                        if (layer != LayerMask.NameToLayer("Reflectors") &&
+                            layer != LayerMask.NameToLayer("Transparents")&& 
+                            layer != LayerMask.NameToLayer("TransparentPhysGround"))
                         {
                             points.Add(hit.point);
                             //Debug.DrawRay(points[i], direction, Color.blue);
