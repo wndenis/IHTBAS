@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IHTBAS2", "IHTBAS2.csproj", "{FBC469D7-02DE-DF47-B60B-9E5947F03992}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IHTBAS2.Editor", "IHTBAS2.Editor.csproj", "{FD951A47-6766-FE71-E477-C895202E915F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBC469D7-02DE-DF47-B60B-9E5947F03992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBC469D7-02DE-DF47-B60B-9E5947F03992}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBC469D7-02DE-DF47-B60B-9E5947F03992}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBC469D7-02DE-DF47-B60B-9E5947F03992}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD951A47-6766-FE71-E477-C895202E915F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD951A47-6766-FE71-E477-C895202E915F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD951A47-6766-FE71-E477-C895202E915F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD951A47-6766-FE71-E477-C895202E915F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

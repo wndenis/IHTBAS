@@ -1,0 +1,12 @@
+﻿<Properties StartupItem="IHTBAS2.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Demo_assets\Demo_scripts\FallingBlock.cs">
+    <Files>
+      <File FileName="Assets\Demo_assets\Demo_scripts\FallingBlock.cs" Line="7" Column="14" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

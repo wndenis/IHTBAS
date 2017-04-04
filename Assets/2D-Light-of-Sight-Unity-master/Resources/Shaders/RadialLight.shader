@@ -1,4 +1,6 @@
-﻿Shader "LOS/Radial Light" {
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "LOS/Radial Light" {
 	Properties {
 		_MainTex ("Base (RGB)", 2D) = "radial" {}
 	}
@@ -42,7 +44,7 @@
                 v2f o;
                 o.uv0 = v.texcoord0;
                 o.color = v.color;
-                o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+                o.pos = UnityObjectToClipPos(v.vertex);
                 return o;
             }
             

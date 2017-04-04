@@ -1,4 +1,6 @@
-﻿Shader "LOS/Basic" {
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "LOS/Basic" {
 	SubShader {
         Tags {
             "IgnoreProjector"="True"
@@ -32,7 +34,7 @@
             v2f vert (vIn v) {
                 v2f o;
                 o.color = v.color;
-                o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+                o.pos = UnityObjectToClipPos(v.vertex);
                 return o;
             }
             
