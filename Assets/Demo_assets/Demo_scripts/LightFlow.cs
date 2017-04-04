@@ -156,7 +156,7 @@ public class LightFlow : MonoBehaviour {
         }*/
 
 
-        line.numPositions = points.Count;
+        line.positionCount = points.Count;
         line.SetPositions(points.ToArray());
     }
     private void FixedUpdate()

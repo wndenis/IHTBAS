@@ -1,4 +1,6 @@
-﻿Shader "LOS/Greyscale Background" {
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "LOS/Greyscale Background" {
  
     Properties {
         [HideInInspector]_MainTex ("Texture", 2D) = ""
@@ -24,7 +26,7 @@
             uniform float4 _MainTex_ST;
             v2f vert (float4 position : POSITION, float2 uv : TEXCOORD0, float4 c : COLOR) {
                 v2f o;
-                o.position = mul (UNITY_MATRIX_MVP, position);
+                o.position = UnityObjectToClipPos (position);
                 o.uv_mainTex = uv * _MainTex_ST.xy + _MainTex_ST.zw;
                 o.c = c;
                 return o;
@@ -54,7 +56,7 @@
             uniform float4 _MainTex_ST;
             v2f vert (float4 position : POSITION, float2 uv : TEXCOORD0, float4 c : COLOR) {
                 v2f o;
-                o.position = mul (UNITY_MATRIX_MVP, position);
+                o.position = UnityObjectToClipPos (position);
                 o.uv_mainTex = uv * _MainTex_ST.xy + _MainTex_ST.zw;
                 o.c = c;
                 return o;
