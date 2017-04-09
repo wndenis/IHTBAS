@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System;
 using UnityEngine.SceneManagement;
 
@@ -25,15 +24,15 @@ public class Controls : MonoBehaviour
 
     private TrailRenderer tr;
 
-    private Vector3 savedPosition;
+    public Vector3 savedPosition;
 
     private Vector3 defaultTransform;
     private float defaultCamTransform;
 
-    public Camera cam;
+    private Camera cam;
     
-    public float movespeed = 5.6f;
-    public float jumpheight = 17;
+    public const float movespeed = 5.6f;
+    public const float jumpheight = 3.1f;
     
     public LayerMask whatIsGround;
     public LayerMask whatIsWall;
@@ -44,11 +43,18 @@ public class Controls : MonoBehaviour
     public Transform wallCheckR;
     public Transform ceilCheck;
 
-    public float boostPower = 41;
-    public float leapPower = 34;
+    public const float boostPower = 17;
+    public const float leapPower = 5.3f;
 
+    private bool immobilized;
     private bool canMove;
     private bool canJump;
+
+    private Animator animator;
+    private bool canBlink = false;
+    private const float BLINK_CHANCE = 5.5f;
+
+
     private float trailTime;
     private float sizeK = 1;
 
@@ -60,7 +66,7 @@ public class Controls : MonoBehaviour
     private bool doubleJumpRight;
     private bool doubleJumpLeft;
 
-    private bool facingRight = true;
+    public bool facingRight;
 
     public Color zC;
     public Color xC;
@@ -68,22 +74,34 @@ public class Controls : MonoBehaviour
     public Color vC;
     public Color invisC;
 
-    public int sizeCharges = 0;
-    public int boostCharges = 0;
-    public int leapCharges = 0;
-    public int powerCharges = 0;
+    public int sizeCharges;
+    public int boostCharges;
+    public int leapCharges;
+    public int powerCharges;
 
-    private bool sizeMode = false;
-    private bool boostMode = false;
-    private bool leapMode = false;
-    private bool powerMode = false;
+    private bool sizeMode;
+    private bool boostMode;
+    private bool leapMode;
+    private bool powerMode;
 
     public void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
-        rb = GetComponent<Rigidbody2D>();
+        sr = GameManager.gameManager.hSpriteRenderer;
+        rb = GameManager.gameManager.hRigidbody2D;
         trfm = GetComponent<Transform>();
-        tr = GetComponent<TrailRenderer>();
+        tr = GameManager.gameManager.hTrailRenderer;
+        animator = GameManager.gameManager.hAnimator;
+        cam = GameManager.gameManager.cam;
+
+        sizeCharges = 0;
+        boostCharges = 0;
+        leapCharges = 0;
+        powerCharges = 0;
+
+        sizeMode = false;
+        boostMode = false;
+        leapMode = false;
+        powerMode = false;
 
         defaultTransform = trfm.localScale;
         defaultCamTransform = cam.orthographicSize;
@@ -91,6 +109,10 @@ public class Controls : MonoBehaviour
 
         canMove = true;
         canJump = true;
+        immobilized = false;
+
+        facingRight = true;
+
         trailTime = 0;
 
         zC = new Color(0.5f, 1f, 0.5f);
@@ -134,13 +156,6 @@ public class Controls : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.V)) switchMode('v'); // v - power
 
         // reset
-        if (Input.GetKeyDown(KeyCode.R)){
-            Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.buildIndex, LoadSceneMode.Single);
-            trfm.position = savedPosition;
-            cam.transform.position = savedPosition;
-        }
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
@@ -158,25 +173,33 @@ public class Controls : MonoBehaviour
         {
             doubleJumpRight = true;
             doubleJumpLeft = true;
+            if (UnityEngine.Random.Range(0, 100) < BLINK_CHANCE)
+                canBlink = true;
+            else
+                canBlink = false;
         }
+        else
+            canBlink = false;
+        animator.SetBool("canBlink", canBlink);
+
         onWall_l = Physics2D.OverlapCircle(wallCheckL.position, groundCheckRadius, whatIsWall);
         onWall_r = Physics2D.OverlapCircle(wallCheckR.position, groundCheckRadius, whatIsWall);
         onCeil = Physics2D.OverlapCircle(ceilCheck.position, groundCheckRadius - 0.05f, whatIsGround);
     }
 
 
-
+    public void SetStun(bool state)
+    {
+        canMove = state;
+        canJump = state;
+        immobilized = !state;
+    }
 
     public void moveTo(string dir)
     {
-        if (canMove)
+        if (canMove && !immobilized)
         {
             rb.velocity = new Vector2(movespeed * (dir == "right" ? 1 : -1) * sizeK, rb.velocity.y);
-            /*if (Math.Abs(rb.velocity.x) < maxSpeed)
-            {
-                rb.AddForce(new Vector2(movespeed * (dir == "right" ? 1 : -1), 0));
-            }*/
-            //rb.MovePosition(new Vector2(transform.position.x + movespeed * (dir == "right" ? 1 : -1) / 2, transform.position.y));
             if ((dir == "right") && (!facingRight) || (dir == "left") && (facingRight))
             {
                 Flip();
@@ -186,7 +209,7 @@ public class Controls : MonoBehaviour
 
     public bool makeJump(float height)
     {
-        if (canJump)
+        if (canJump && !immobilized)
         {
             float v = (float)Math.Sqrt(height * sizeK * (-Physics2D.gravity.y * rb.gravityScale * 2.3f));
             if (onGround)
@@ -220,19 +243,15 @@ public class Controls : MonoBehaviour
         return false;
     }
 
-    void Flip() // flipping player's view
+    public void Flip() // flipping player's view
     {
-        //sr.flipX = facingRight;
         trfm.localScale = new Vector3(trfm.localScale.x * -1, trfm.localScale.y, trfm.localScale.z);
         facingRight = !facingRight;
+
         // Меняем местами левый и правый чек
         Vector3 tmp = wallCheckL.position;
         wallCheckL.position = wallCheckR.position;
         wallCheckR.position = tmp;
-        // Вращаем свет
-        /*
-        tmp = lightTransform.localScale;
-        lightTransform.localScale = new Vector3(tmp.x * -1, tmp.y, tmp.z);*/
     }
 
     private void CheckTrail()

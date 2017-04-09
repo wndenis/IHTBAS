@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class debugGUI : MonoBehaviour {
-    public Transform player;
+    private Transform hero;
     private Controls c;
     public GUIStyle styleSize;
     public GUIStyle styleBoost;
@@ -12,7 +12,8 @@ public class debugGUI : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        c = player.GetComponent<Controls>();
+        hero = GameManager.gameManager.hero;
+        c = hero.GetComponent<Controls>();
 	}
 	
 	// Update is called once per frame

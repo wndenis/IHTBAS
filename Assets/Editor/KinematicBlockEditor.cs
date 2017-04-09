@@ -17,6 +17,9 @@ public class KinematicBlockEditor : Editor
     SerializedProperty reverseAtEnd;
     SerializedProperty cycle;
     SerializedProperty delayAtEnd;
+    SerializedProperty mayKill;
+    SerializedProperty killZoneTrfm;
+    SerializedProperty killDelay;
 
 
     //Передаём этому скрипту компонент и необходимые в редакторе поля
@@ -33,6 +36,9 @@ public class KinematicBlockEditor : Editor
         reverseAtEnd = serializedObject.FindProperty("reverseAtEnd");
         cycle = serializedObject.FindProperty("cycle");
         delayAtEnd = serializedObject.FindProperty("delayAtEnd");
+        mayKill = serializedObject.FindProperty("mayKill");
+        killZoneTrfm = serializedObject.FindProperty("killZoneTrfm");
+        killDelay = serializedObject.FindProperty("killDelay");
     }
 
     //Переопределяем событие отрисовки компонента
@@ -73,6 +79,15 @@ public class KinematicBlockEditor : Editor
         EditorGUILayout.Space();
         EditorGUILayout.PropertyField(startChain, true);
         EditorGUILayout.PropertyField(endChain, true);
+
+        EditorGUILayout.Space();
+        EditorGUILayout.PropertyField(mayKill);
+        if (mayKill.boolValue)
+        {
+            EditorGUILayout.PropertyField(killDelay);
+            EditorGUILayout.PropertyField(killZoneTrfm);
+        }
+
 
         //DrawDefaultInspector();
 

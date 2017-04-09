@@ -18,6 +18,11 @@ public class KinematicBlock : MonoBehaviour
     public bool reverseAtEnd = false;
     public bool cycle = false;
     public float delayAtEnd = 500f;
+    public bool mayKill = false;
+    public float killDelay;
+    public Transform killZoneTrfm;
+    private KillZone killZone;
+    private BoxCollider2D killZoneCol;
 
     public Transform[] startChain;
     public Transform[] endChain;
@@ -42,6 +47,13 @@ public class KinematicBlock : MonoBehaviour
         trfm = GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
         bc2d = GetComponent<BoxCollider2D>();
+        if (mayKill)
+        {
+            killZone = killZoneTrfm.GetComponent<KillZone>();
+            killZoneCol = killZoneTrfm.GetComponent<BoxCollider2D>();
+            killZoneCol.enabled = false;
+            killDelay /= 1000;
+        }
         expansionTime += 1;
         expansionTime /= 1000;
         delay /= 1000;
@@ -62,49 +74,60 @@ public class KinematicBlock : MonoBehaviour
             {
                 finished = true;
                 delaying = false;
-                //bc2d.enabled = true;
-                foreach (Transform t in endChain)
+                // УБИВАНИЕ!!!!!! АРРРР
+                if (mayKill)
                 {
-                    try
-                    {
-                        StartCoroutine(t.GetComponent<KinematicBlock>().StartAnim(false));
-                    }
-                    catch (Exception e)
-                    {
-                        Debug.Log(e.Message + "\nError: " + t.name);
-                    }
+                    killZoneCol.enabled = true;
+                    killZone.killDelay = killDelay;
                 }
-                if (reverseAtEnd)
+
+                else
                 {
-                    t = 0;
-                    if(typeOfAngle == AngleType.Up)
+                    if (!cycle)
+                        bc2d.enabled = true;
+                    foreach (Transform t in endChain)
                     {
-                        typeOfAngle = AngleType.Down;
+                        try
+                        {
+                            StartCoroutine(t.GetComponent<KinematicBlock>().StartAnim(false));
+                        }
+                        catch (Exception e)
+                        {
+                            Debug.Log(e.Message + "\nError: " + t.name);
+                        }
                     }
-                    else if (typeOfAngle == AngleType.Left)
+                    if (reverseAtEnd)
                     {
-                        typeOfAngle = AngleType.Right;
-                    }
-                    else if (typeOfAngle == AngleType.Down)
-                    {
-                        typeOfAngle = AngleType.Up;
-                    }
-                    else if(typeOfAngle == AngleType.Right)
-                    {
-                        typeOfAngle = AngleType.Left;
-                    }
+                        t = 0;
+                        if (typeOfAngle == AngleType.Up)
+                        {
+                            typeOfAngle = AngleType.Down;
+                        }
+                        else if (typeOfAngle == AngleType.Left)
+                        {
+                            typeOfAngle = AngleType.Right;
+                        }
+                        else if (typeOfAngle == AngleType.Down)
+                        {
+                            typeOfAngle = AngleType.Up;
+                        }
+                        else if (typeOfAngle == AngleType.Right)
+                        {
+                            typeOfAngle = AngleType.Left;
+                        }
 
-                    triggered = false;
+                        triggered = false;
 
-                    if (direct)
-                    {
-                        StartCoroutine(StartAnim(true));
+                        if (direct)
+                        {
+                            StartCoroutine(StartAnim(true));
+                        }
+                        else if (cycle)
+                        {
+                            StartCoroutine(StartAnim(false));
+                        }
+                        direct = !direct;
                     }
-                    else if (cycle)
-                    {
-                        StartCoroutine(StartAnim(false));
-                    }
-                    direct = !direct;
                 }
             }
         }
@@ -151,7 +174,7 @@ public class KinematicBlock : MonoBehaviour
         delaying = true;
         if (!triggered)
         {
-            //bc2d.enabled = false;
+            bc2d.enabled = false;
             foreach (Transform t in startChain)
             {
                 StartCoroutine(t.GetComponent<KinematicBlock>().StartAnim(reverse));

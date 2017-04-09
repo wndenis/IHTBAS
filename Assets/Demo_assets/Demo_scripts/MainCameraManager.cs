@@ -19,8 +19,8 @@ public class MainCameraManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        GameManager.gameManager.cam = GetComponent<Camera>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
