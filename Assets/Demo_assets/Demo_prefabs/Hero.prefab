@@ -628,8 +628,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   sr: {fileID: 0}
   trfm: {fileID: 0}
-  movespeed: 5.6
-  jumpheight: 3
+  savedPosition: {x: 0, y: 0, z: 0}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 176128
@@ -641,8 +640,7 @@ MonoBehaviour:
   wallCheckL: {fileID: 4000012284864828}
   wallCheckR: {fileID: 4000013326781054}
   ceilCheck: {fileID: 4000013145760696}
-  boostPower: 17
-  leapPower: 5.3
+  facingRight: 0
   zC: {r: 0, g: 0, b: 0, a: 0}
   xC: {r: 0, g: 0, b: 0, a: 0}
   cC: {r: 0, g: 0, b: 0, a: 0}
@@ -729,7 +727,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
 --- !u!212 &212000010833083896
@@ -769,7 +767,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
 --- !u!212 &212000012429161000
@@ -809,7 +807,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
 --- !u!212 &212000012530455480
@@ -849,7 +847,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
 --- !u!212 &212000012605640278
@@ -889,7 +887,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
 --- !u!212 &212000013375111164
@@ -929,7 +927,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
 --- !u!212 &212056779035318324
@@ -969,6 +967,6 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0

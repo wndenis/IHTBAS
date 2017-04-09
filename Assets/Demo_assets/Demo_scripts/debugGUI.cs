@@ -5,21 +5,31 @@ using UnityEngine;
 public class debugGUI : MonoBehaviour {
     private Transform hero;
     private Controls c;
+
     public GUIStyle styleSize;
     public GUIStyle styleBoost;
     public GUIStyle styleLeap;
     public GUIStyle stylePower;
 
+    public Transform Fader;
+    public SpriteRenderer fader;
+
     // Use this for initialization
     void Start () {
-        hero = GameManager.gameManager.hero;
-        c = hero.GetComponent<Controls>();
-	}
+        c = GameManager.gameManager.hControls;
+        MakeFader();
+        StartCoroutine(GameManager.gameManager.FadeOut(1));
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    public void MakeFader()
+    {
+        fader = Instantiate(Fader, GameManager.gameManager.camTrfm).GetComponent<SpriteRenderer>();
+    }
 
     private void OnGUI()
     {
@@ -28,5 +38,4 @@ public class debugGUI : MonoBehaviour {
         GUI.Label(new Rect(65, 5, 95, 25), ""+c.leapCharges, styleLeap);
         GUI.Label(new Rect(95, 5, 125, 25), ""+c.powerCharges, stylePower);
     }
-
 }

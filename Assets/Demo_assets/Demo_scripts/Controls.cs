@@ -188,11 +188,11 @@ public class Controls : MonoBehaviour
     }
 
 
-    public void SetStun(bool state)
+    public void SetStun(bool state) // false - идти
     {
-        canMove = state;
-        canJump = state;
-        immobilized = !state;
+        canMove = !state;
+        canJump = !state;
+        immobilized = state;
     }
 
     public void moveTo(string dir)

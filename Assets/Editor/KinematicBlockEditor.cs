@@ -75,10 +75,12 @@ public class KinematicBlockEditor : Editor
             EditorGUILayout.PropertyField(delayAtEnd);
             EditorGUILayout.PropertyField(cycle);
         }
-
-        EditorGUILayout.Space();
-        EditorGUILayout.PropertyField(startChain, true);
-        EditorGUILayout.PropertyField(endChain, true);
+        //if (!cycle.boolValue)
+        //{
+            EditorGUILayout.Space();
+            EditorGUILayout.PropertyField(startChain, true);
+            EditorGUILayout.PropertyField(endChain, true);
+        //}
 
         EditorGUILayout.Space();
         EditorGUILayout.PropertyField(mayKill);

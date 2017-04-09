@@ -41,6 +41,10 @@ public class KinematicBlock : MonoBehaviour
 
     private bool direct = true;
 
+    private bool killRoutine = false;
+    private bool virginS = true;
+    private bool virignE = true;
+
     // Use this for initialization
     void Start()
     {
@@ -53,6 +57,7 @@ public class KinematicBlock : MonoBehaviour
             killZoneCol = killZoneTrfm.GetComponent<BoxCollider2D>();
             killZoneCol.enabled = false;
             killDelay /= 1000;
+            killZone.kinematic = this;
         }
         expansionTime += 1;
         expansionTime /= 1000;
@@ -60,8 +65,7 @@ public class KinematicBlock : MonoBehaviour
         delayAtEnd /= 1000;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (triggered && !finished)
         {
@@ -75,27 +79,23 @@ public class KinematicBlock : MonoBehaviour
                 finished = true;
                 delaying = false;
                 // УБИВАНИЕ!!!!!! АРРРР
-                if (mayKill)
+                if (mayKill && direct)
                 {
-                    killZoneCol.enabled = true;
                     killZone.killDelay = killDelay;
+                    StartCoroutine(EnableKillZone(cycle ? delayAtEnd : 1000));
                 }
 
-                else
+                if (mayKill && !killZone.triggered || !mayKill)
                 {
                     if (!cycle)
                         bc2d.enabled = true;
-                    foreach (Transform t in endChain)
+                    if (virignE)
                     {
-                        try
-                        {
+                        virignE = false;
+                        foreach (Transform t in endChain)
                             StartCoroutine(t.GetComponent<KinematicBlock>().StartAnim(false));
-                        }
-                        catch (Exception e)
-                        {
-                            Debug.Log(e.Message + "\nError: " + t.name);
-                        }
                     }
+                    //endChain = new Transform[0];
                     if (reverseAtEnd)
                     {
                         t = 0;
@@ -131,6 +131,20 @@ public class KinematicBlock : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void GentleStop()
+    {
+        StopAnim();
+
+
+        //START
+        foreach (Transform t in startChain)
+                t.GetComponent<KinematicBlock>().GentleStop();
+
+        //END
+        foreach (Transform t in endChain)
+                t.GetComponent<KinematicBlock>().GentleStop();
     }
 
     public void Block()
@@ -169,22 +183,33 @@ public class KinematicBlock : MonoBehaviour
         }
     }
 
+    IEnumerator EnableKillZone(float time)
+    {
+        if (!killRoutine)
+        {
+            killRoutine = true;
+            killZoneCol.enabled = true;
+            yield return new WaitForSeconds(time);
+            killZoneCol.enabled = false;
+        }
+        killRoutine = false;
+    }
+
     IEnumerator StartAnim(bool reverse)
     {
         delaying = true;
         if (!triggered)
         {
             bc2d.enabled = false;
-            foreach (Transform t in startChain)
+            if (virginS)
             {
-                StartCoroutine(t.GetComponent<KinematicBlock>().StartAnim(reverse));
+                virginS = false;
+                foreach (Transform t in startChain)
+                    StartCoroutine(t.GetComponent<KinematicBlock>().StartAnim(reverse));
             }
-
+            //startChain = new Transform[0];
             if (reverse)
-            {
-                Debug.Log("Started Reverse");
                 yield return new WaitForSeconds(delayAtEnd);
-            }
             else yield return new WaitForSeconds(delay);
 
             Pos = trfm.position;

@@ -60,7 +60,7 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 2
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &61098142410262988
@@ -108,7 +108,7 @@ MonoBehaviour:
   delayAtEnd: 500
   mayKill: 0
   killDelay: 0
-  killZone: {fileID: 0}
+  killZoneTrfm: {fileID: 0}
   startChain: []
   endChain: []
 --- !u!212 &212955676221806368
@@ -117,7 +117,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1628247087722556}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
@@ -142,7 +142,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1000
   m_Sprite: {fileID: 21300000, guid: 4c07f2adf4457824e8c891f548a8495b, type: 3}
   m_Color: {r: 0.4191177, g: 0.9487456, b: 1, a: 0.447}
   m_FlipX: 0

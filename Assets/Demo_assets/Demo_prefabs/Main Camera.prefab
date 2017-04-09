@@ -41,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1373093697127424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.1, y: 26.8, z: -10}
+  m_LocalPosition: {x: -45.19, y: 5.66, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -148,7 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867b82cb6fffd6142b379fc2ffa616e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   styleSize:
     m_Name: 
     m_Normal:
@@ -417,6 +416,7 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  Fader: {fileID: 4762475664477922, guid: 94786b3b2f529b9489bb5ab84a4017f7, type: 2}
 --- !u!124 &124650926746147006
 Behaviour:
   m_ObjectHideFlags: 1
