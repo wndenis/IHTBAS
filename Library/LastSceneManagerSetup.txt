@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/OnlyAhead.unity
+- path: Assets/TEMPLATE.unity
   isLoaded: 1
   isActive: 1

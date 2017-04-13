@@ -19,6 +19,7 @@ namespace UnityStandardAssets._2D
         // Use this for initialization
         private void Start()
         {
+            target = GameManager.gameManager.hero;
             m_LastTargetPosition = target.position;
             m_OffsetZ = (transform.position - target.position).z;
             transform.parent = null;

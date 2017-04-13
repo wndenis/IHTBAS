@@ -2,10 +2,10 @@ Mono path[0] = 'C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v5
 Mono path[1] = 'C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v5.1 level switching/Cubic_Data/Mono'
 Mono config path = 'C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v5.1 level switching/Cubic_Data/Mono/etc'
 PlayerConnection initialized from C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v5.1 level switching/Cubic_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55460
-Multi-casting "[IP] 192.168.1.2 [Port] 55460 [Flags] 2 [Guid] 3004792926 [EditorId] 2791014383 [Version] 1048832 [Id] WindowsPlayer(WinDA-10) [Debug] 0" to [225.0.0.222:54997]...
-Started listening to [0.0.0.0:55460]
-PlayerConnection already initialized - listening to [0.0.0.0:55460]
+PlayerConnection initialized network socket : 0.0.0.0 55466
+Multi-casting "[IP] 192.168.1.2 [Port] 55466 [Flags] 2 [Guid] 2111974579 [EditorId] 2791014383 [Version] 1048832 [Id] WindowsPlayer(WinDA-10) [Debug] 0" to [225.0.0.222:54997]...
+Started listening to [0.0.0.0:55466]
+PlayerConnection already initialized - listening to [0.0.0.0:55466]
 Initialize engine version: 5.5.1f1 (88d00a7498cd)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -27,7 +27,7 @@ Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build
 Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1 level switching\Cubic_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
 Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1 level switching\Cubic_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1 level switching\Cubic_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.136 seconds
+- Completed reload, in  0.045 seconds
 Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1 level switching\Cubic_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1 level switching\Cubic_Data\Managed\System.dll (this message is harmless)
 OnLevelWasLoaded was found on MatesManager
@@ -40,14 +40,14 @@ Add a delegate to SceneManager.sceneLoaded instead to get notifications after sc
 <RI> Input initialized.
 desktop: 1440x900 60Hz; virtual: 2806x900 at 0,0
 <RI> Initialized touch support.
-UnloadTime: 2.153915 ms
+UnloadTime: 1.478417 ms
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 70.962280 ms
-System memory in use before: 56.5 MB.
-System memory in use after: 56.9 MB.
+UnloadTime: 24.509956 ms
+System memory in use before: 57.0 MB.
+System memory in use after: 57.4 MB.
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 13676.
-Total: 8.821980 ms (FindLiveObjects: 2.311706 ms CreateObjectMapping: 0.383655 ms MarkObjects: 5.976855 ms  DeleteObjects: 0.119041 ms)
+Total: 4.220558 ms (FindLiveObjects: 1.153758 ms CreateObjectMapping: 0.291145 ms MarkObjects: 2.748773 ms  DeleteObjects: 0.023040 ms)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1cc8 -> priority: 1 
+  Thread -> id: 8798 -> priority: 1 

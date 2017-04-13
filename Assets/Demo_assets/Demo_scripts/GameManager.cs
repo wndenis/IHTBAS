@@ -6,12 +6,16 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager = null;
+    [Header("Нужно указать:")]
+    [Header("1) камеру \"cam\"")]
+    [Header("2) героя \"hero\"")]
+    [Header("Остальные поля определятся автоматически!")]
     public Camera cam = null;
-    public Transform camTrfm;
-    public debugGUI dGUI;
     public Transform hero;
 
-
+    [Space(25)]
+    public Transform camTrfm;
+    public debugGUI dGUI;
     // COMPONENTS
     public Rigidbody2D hRigidbody2D;
     public SpriteRenderer hSpriteRenderer;
@@ -19,7 +23,6 @@ public class GameManager : MonoBehaviour
     public CircleCollider2D hCircleCollider2D;
     public TrailRenderer hTrailRenderer;
     public Animator hAnimator;
-
     // COMPONENTS.
 
 
