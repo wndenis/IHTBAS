@@ -23,6 +23,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/testscene2.unity
     guid: 9f352c19c12092e45afb9ef62ec184c8
-  - enabled: 1
+  - enabled: 0
     path: Assets/sandbox1.unity
     guid: 06a09b2c256f4f94a9e27a422b047dbb
+  - enabled: 1
+    path: Assets/MainMenu.unity
+    guid: 9ec2038adb3ca594db0cec079919d8c1
+  - enabled: 1
+    path: Assets/sandbox2.unity
+    guid: b7b61cea72d77024eb6e41fa1022db95

@@ -19,9 +19,9 @@ public class Teleport : MonoBehaviour {
     {
         if (collision.tag == "Player")
         {
-            Vector3 delta = GameManager.gameManager.cam.transform.position - collision.transform.position;
+            Vector3 delta = GameUtils.gameUtils.cam.transform.position - collision.transform.position;
             collision.transform.position = Point.position;
-            GameManager.gameManager.cam.transform.position = Point.position + delta;
+            GameUtils.gameUtils.cam.transform.position = Point.position + delta;
         }
     }
 }

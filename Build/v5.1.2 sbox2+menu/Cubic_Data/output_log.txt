@@ -1,0 +1,270 @@
+Mono path[0] = 'C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v5.1.2 sbox2+menu/Cubic_Data/Managed'
+Mono path[1] = 'C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v5.1.2 sbox2+menu/Cubic_Data/Mono'
+Mono config path = 'C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v5.1.2 sbox2+menu/Cubic_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v5.1.2 sbox2+menu/Cubic_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55162
+Multi-casting "[IP] 192.168.1.2 [Port] 55162 [Flags] 2 [Guid] 2727354426 [EditorId] 3495007575 [Version] 1048832 [Id] WindowsPlayer(WinDA-10) [Debug] 0" to [225.0.0.222:54997]...
+Started listening to [0.0.0.0:55162]
+PlayerConnection already initialized - listening to [0.0.0.0:55162]
+Player data archive not found at `C:/Users/Public/Documents/Unity Projects/Quadratic Demo/Build/v5.1.2 sbox2+menu/Cubic_Data/data.unity3d`, using local filesystemInitialize engine version: 5.6.0f3 (497a0f351392)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [aticfx32.dll 21.19.413.0]
+    Renderer: AMD Radeon R7 200 Series
+    Vendor:   ATI
+    VRAM:     1005 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 INTZ=1 NULL=1 RESZ=1 SlowINTZ=1 ATOC=0 BC4=1 BC5=1
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1.2 sbox2+menu\Cubic_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1.2 sbox2+menu\Cubic_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1.2 sbox2+menu\Cubic_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1.2 sbox2+menu\Cubic_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1.2 sbox2+menu\Cubic_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1.2 sbox2+menu\Cubic_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1.2 sbox2+menu\Cubic_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1.2 sbox2+menu\Cubic_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1.2 sbox2+menu\Cubic_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1.2 sbox2+menu\Cubic_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.306 seconds
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1.2 sbox2+menu\Cubic_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Quadratic Demo\Build\v5.1.2 sbox2+menu\Cubic_Data\Managed\System.dll (this message is harmless)
+OnLevelWasLoaded was found on MatesManager
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+0x00E038FB (Cubic) 
+0x00E05060 (Cubic) 
+0x00CD18CA (Cubic) 
+0x008A27CB (Cubic) 
+0x008A2BBA (Cubic) 
+0x00926877 (Cubic) 
+0x0092A877 (Cubic) 
+0x0092AA53 (Cubic) 
+0x0092AB66 (Cubic) 
+0x0092B1E9 (Cubic) 
+0x0092B267 (Cubic) 
+0x00A74F7A (Cubic) 
+0x00A75102 (Cubic) 
+0x00531EE3 (Cubic) 
+0x00CB0230 (Cubic) 
+0x003F7F6B (Cubic) 
+0x00E40968 (Cubic) 
+0x00E81CE3 (Cubic) 
+0x741638F4 (KERNEL32) BaseThreadInitThunk
+0x770C5DE3 (ntdll) RtlUnicodeStringToInteger
+0x770C5DAE (ntdll) RtlUnicodeStringToInteger
+ 
+(Filename: C:\buildslave\unity\build\Runtime/Mono/MonoScriptCache.cpp Line: 376)
+
+WARNING: Shader Unsupported: 'Hidden/VR/BlitCopyFromTexArray' - Pass '' has no vertex shader
+WARNING: Shader Unsupported: 'Hidden/VR/BlitCopyFromTexArray' - Setting to default shader.
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1440x900 60Hz; virtual: 2806x900 at 0,0
+<RI> Initialized touch support.
+UnloadTime: 3.549597 ms
+Герой не задан!
+0x00E038FB (Cubic) 
+0x00E05060 (Cubic) 
+0x00CD18CA (Cubic) 
+0x008A27CB (Cubic) 
+0x008A2BBA (Cubic) 
+0x00C5FC2C (Cubic) 
+0x067F8C3D (Mono JIT Code) (wrapper managed-to-native) UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,string,UnityEngine.Object)
+0x067F8BDE (Mono JIT Code) [DebugLogHandler.cs:9] UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) 
+0x067F8AA1 (Mono JIT Code) [Logger.cs:41] UnityEngine.Logger:Log (UnityEngine.LogType,object) 
+0x067F8961 (Mono JIT Code) [DebugBindings.gen.cs:168] UnityEngine.Debug:LogWarning (object) 
+0x067F87F0 (Mono JIT Code) [GameUtils.cs:34] GameUtils:Awake () 
+0x067E9311 (Mono JIT Code) (wrapper runtime-invoke) object:runtime_invoke_void__this__ (object,intptr,intptr,intptr)
+0x100F17E6 (mono) mono_set_defaults
+0x1005D865 (mono) mono_runtime_invoke
+0x00A65370 (Cubic) 
+0x00A61AC8 (Cubic) 
+0x00A622E0 (Cubic) 
+0x00CC680E (Cubic) 
+0x00CC6DED (Cubic) 
+0x00CC93DC (Cubic) 
+0x0069601A (Cubic) 
+0x00CC746A (Cubic) 
+0x00A6DE27 (Cubic) 
+0x00A70FF0 (Cubic) 
+0x00A411DA (Cubic) 
+0x00A43E67 (Cubic) 
+0x00A42C13 (Cubic) 
+0x00A42D77 (Cubic) 
+0x003E9338 (Cubic) 
+0x003F82C7 (Cubic) 
+0x00E40968 (Cubic) 
+0x00E81CE3 (Cubic) 
+0x741638F4 (KERNEL32) BaseThreadInitThunk
+0x770C5DE3 (ntdll) RtlUnicodeStringToInteger
+0x770C5DAE (ntdll) RtlUnicodeStringToInteger
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Камера задана
+0x00E038FB (Cubic) 
+0x00E05060 (Cubic) 
+0x00CD18CA (Cubic) 
+0x008A27CB (Cubic) 
+0x008A2BBA (Cubic) 
+0x00C5FC2C (Cubic) 
+0x067F8C3D (Mono JIT Code) (wrapper managed-to-native) UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,string,UnityEngine.Object)
+0x067F8BDE (Mono JIT Code) [DebugLogHandler.cs:9] UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) 
+0x067F8AA1 (Mono JIT Code) [Logger.cs:41] UnityEngine.Logger:Log (UnityEngine.LogType,object) 
+0x067F8C79 (Mono JIT Code) [DebugBindings.gen.cs:103] UnityEngine.Debug:Log (object) 
+0x067F8819 (Mono JIT Code) [GameUtils.cs:39] GameUtils:Awake () 
+0x067E9311 (Mono JIT Code) (wrapper runtime-invoke) object:runtime_invoke_void__this__ (object,intptr,intptr,intptr)
+0x100F17E6 (mono) mono_set_defaults
+0x1005D865 (mono) mono_runtime_invoke
+0x00A65370 (Cubic) 
+0x00A61AC8 (Cubic) 
+0x00A622E0 (Cubic) 
+0x00CC680E (Cubic) 
+0x00CC6DED (Cubic) 
+0x00CC93DC (Cubic) 
+0x0069601A (Cubic) 
+0x00CC746A (Cubic) 
+0x00A6DE27 (Cubic) 
+0x00A70FF0 (Cubic) 
+0x00A411DA (Cubic) 
+0x00A43E67 (Cubic) 
+0x00A42C13 (Cubic) 
+0x00A42D77 (Cubic) 
+0x003E9338 (Cubic) 
+0x003F82C7 (Cubic) 
+0x00E40968 (Cubic) 
+0x00E81CE3 (Cubic) 
+0x741638F4 (KERNEL32) BaseThreadInitThunk
+0x770C5DE3 (ntdll) RtlUnicodeStringToInteger
+0x770C5DAE (ntdll) RtlUnicodeStringToInteger
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
+0x00E038FB (Cubic) 
+0x00E05060 (Cubic) 
+0x00CD18CA (Cubic) 
+0x008A27CB (Cubic) 
+0x008A2BBA (Cubic) 
+0x00A5BD2F (Cubic) 
+0x00C56DBC (Cubic) 
+0x067F891F (Mono JIT Code) (wrapper managed-to-native) UnityEngine.Object:DontDestroyOnLoad (UnityEngine.Object)
+0x067F8CEF (Mono JIT Code) [MainCameraManager.cs:15] MainCameraManager:Awake () 
+0x067E9311 (Mono JIT Code) (wrapper runtime-invoke) object:runtime_invoke_void__this__ (object,intptr,intptr,intptr)
+0x100F17E6 (mono) mono_set_defaults
+0x1005D865 (mono) mono_runtime_invoke
+0x00A65370 (Cubic) 
+0x00A61AC8 (Cubic) 
+0x00A622E0 (Cubic) 
+0x00CC680E (Cubic) 
+0x00CC6DED (Cubic) 
+0x00CC93DC (Cubic) 
+0x0069601A (Cubic) 
+0x00CC746A (Cubic) 
+0x00A6DE27 (Cubic) 
+0x00A70FF0 (Cubic) 
+0x00A411DA (Cubic) 
+0x00A43E67 (Cubic) 
+0x00A42C13 (Cubic) 
+0x00A42D77 (Cubic) 
+0x003E9338 (Cubic) 
+0x003F82C7 (Cubic) 
+0x00E40968 (Cubic) 
+0x00E81CE3 (Cubic) 
+0x741638F4 (KERNEL32) BaseThreadInitThunk
+0x770C5DE3 (ntdll) RtlUnicodeStringToInteger
+0x770C5DAE (ntdll) RtlUnicodeStringToInteger
+ 
+(Filename: C:\buildslave\unity\build\Runtime/SceneManager/SceneManager.cpp Line: 462)
+
+GfxDevice: creating device client; threaded=1
+GfxDevice: creating device client; threaded=1
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 7.396275 ms
+Герой задан
+0x00E038FB (Cubic) 
+0x00E05060 (Cubic) 
+0x00CD18CA (Cubic) 
+0x008A27CB (Cubic) 
+0x008A2BBA (Cubic) 
+0x00C5FC2C (Cubic) 
+0x067F8C3D (Mono JIT Code) (wrapper managed-to-native) UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,string,UnityEngine.Object)
+0x067F8BDE (Mono JIT Code) [DebugLogHandler.cs:9] UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) 
+0x067F8AA1 (Mono JIT Code) [Logger.cs:41] UnityEngine.Logger:Log (UnityEngine.LogType,object) 
+0x067F8C79 (Mono JIT Code) [DebugBindings.gen.cs:103] UnityEngine.Debug:Log (object) 
+0x067F8748 (Mono JIT Code) [GameUtils.cs:24] GameUtils:Awake () 
+0x067E9311 (Mono JIT Code) (wrapper runtime-invoke) object:runtime_invoke_void__this__ (object,intptr,intptr,intptr)
+0x100F17E6 (mono) mono_set_defaults
+0x1005D865 (mono) mono_runtime_invoke
+0x00A65370 (Cubic) 
+0x00A61AC8 (Cubic) 
+0x00A622E0 (Cubic) 
+0x00CC680E (Cubic) 
+0x00CC6DED (Cubic) 
+0x00CC93DC (Cubic) 
+0x0069601A (Cubic) 
+0x00CC746A (Cubic) 
+0x00A6DE27 (Cubic) 
+0x00A70FF0 (Cubic) 
+0x00A411DA (Cubic) 
+0x00A43E2C (Cubic) 
+0x00A42C13 (Cubic) 
+0x00A42EC2 (Cubic) 
+0x00CAEE04 (Cubic) 
+0x003F82C7 (Cubic) 
+0x00E40968 (Cubic) 
+0x00E81CE3 (Cubic) 
+0x741638F4 (KERNEL32) BaseThreadInitThunk
+0x770C5DE3 (ntdll) RtlUnicodeStringToInteger
+0x770C5DAE (ntdll) RtlUnicodeStringToInteger
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Камера задана
+0x00E038FB (Cubic) 
+0x00E05060 (Cubic) 
+0x00CD18CA (Cubic) 
+0x008A27CB (Cubic) 
+0x008A2BBA (Cubic) 
+0x00C5FC2C (Cubic) 
+0x067F8C3D (Mono JIT Code) (wrapper managed-to-native) UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,string,UnityEngine.Object)
+0x067F8BDE (Mono JIT Code) [DebugLogHandler.cs:9] UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) 
+0x067F8AA1 (Mono JIT Code) [Logger.cs:41] UnityEngine.Logger:Log (UnityEngine.LogType,object) 
+0x067F8C79 (Mono JIT Code) [DebugBindings.gen.cs:103] UnityEngine.Debug:Log (object) 
+0x067F8819 (Mono JIT Code) [GameUtils.cs:39] GameUtils:Awake () 
+0x067E9311 (Mono JIT Code) (wrapper runtime-invoke) object:runtime_invoke_void__this__ (object,intptr,intptr,intptr)
+0x100F17E6 (mono) mono_set_defaults
+0x1005D865 (mono) mono_runtime_invoke
+0x00A65370 (Cubic) 
+0x00A61AC8 (Cubic) 
+0x00A622E0 (Cubic) 
+0x00CC680E (Cubic) 
+0x00CC6DED (Cubic) 
+0x00CC93DC (Cubic) 
+0x0069601A (Cubic) 
+0x00CC746A (Cubic) 
+0x00A6DE27 (Cubic) 
+0x00A70FF0 (Cubic) 
+0x00A411DA (Cubic) 
+0x00A43E2C (Cubic) 
+0x00A42C13 (Cubic) 
+0x00A42EC2 (Cubic) 
+0x00CAEE04 (Cubic) 
+0x003F82C7 (Cubic) 
+0x00E40968 (Cubic) 
+0x00E81CE3 (Cubic) 
+0x741638F4 (KERNEL32) BaseThreadInitThunk
+0x770C5DE3 (ntdll) RtlUnicodeStringToInteger
+0x770C5DAE (ntdll) RtlUnicodeStringToInteger
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+System memory in use before: 115.9 MB.
+System memory in use after: 90.0 MB.
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 4047.
+Total: 6.000593 ms (FindLiveObjects: 0.399364 ms CreateObjectMapping: 0.114503 ms MarkObjects: 1.591873 ms  DeleteObjects: 3.892758 ms)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 8ff8 -> priority: 1 
+  Thread -> id: 1704 -> priority: 1 

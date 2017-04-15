@@ -86,12 +86,14 @@ public class Controls : MonoBehaviour
 
     public void Start()
     {
-        sr = GameManager.gameManager.hSpriteRenderer;
-        rb = GameManager.gameManager.hRigidbody2D;
+        // задаем себя в менеджере (при запуске уровня из меню)
         trfm = GetComponent<Transform>();
-        tr = GameManager.gameManager.hTrailRenderer;
-        animator = GameManager.gameManager.hAnimator;
-        cam = GameManager.gameManager.cam;
+
+        sr = GameUtils.gameUtils.hSpriteRenderer;
+        rb = GameUtils.gameUtils.hRigidbody2D;
+        tr = GameUtils.gameUtils.hTrailRenderer;
+        animator = GameUtils.gameUtils.hAnimator;
+        cam = GameUtils.gameUtils.cam;
 
         sizeCharges = 0;
         boostCharges = 0;

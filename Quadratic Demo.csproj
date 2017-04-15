@@ -84,36 +84,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Core\Event\LOSEventManager.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Core\Event\LOSEventSource.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Core\Event\LOSEventTrigger.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Core\LOSCamera.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Core\LOSFullScreenLight.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Core\LOSLightBase.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Core\LOSManager.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Core\LOSObjectBase.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Core\LOSObstacle.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Core\LOSRadialLight.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Examples\Scripts\ChangeColorOnLOSEvent.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Examples\Scripts\ChangeTextColorOnLOSEvent.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Examples\Scripts\FlipX.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Examples\Scripts\Flowing.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Examples\Scripts\Follow.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Examples\Scripts\Move.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Examples\Scripts\MoveAccordingToDirection.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Examples\Scripts\MovePhysics.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Examples\Scripts\Rotate.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Examples\Scripts\RotateLight.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Utilities\SHelper.cs" />
-    <Compile Include="Assets\2D-Light-of-Sight-Unity-master\Utilities\SMath.cs" />
-    <Compile Include="Assets\BlocksBeh.cs" />
-    <Compile Include="Assets\BlocksManager.cs" />
+    <Compile Include="Assets\Demo_assets\DEOMODEBUG\MainMenu.cs" />
+    <Compile Include="Assets\Demo_assets\Demo_scripts\AudioDEBUG.cs" />
+    <Compile Include="Assets\Demo_assets\Demo_scripts\CamUtils.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\Camera2DFollow.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\CameraRotation.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\ChargePod.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\Controls.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\FallingBlock.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\GameManager.cs" />
+    <Compile Include="Assets\Demo_assets\Demo_scripts\GameUtils.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\InGameSceneLoader.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\KillZone.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\KinematicBlock.cs" />
@@ -123,6 +103,7 @@
     <Compile Include="Assets\Demo_assets\Demo_scripts\MateBridge.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\MateCreator.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\MatesManager.cs" />
+    <Compile Include="Assets\Demo_assets\Demo_scripts\MenuPostProcess.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\ParticleSystemSelfDestruct.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\Press.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\Teleport.cs" />
@@ -130,23 +111,30 @@
     <Compile Include="Assets\Demo_assets\Demo_scripts\TriggerCameraShaker.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\WeakBlock.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\debugGUI.cs" />
-    <Compile Include="Assets\ObjectWidthHeight.cs" />
-    <Compile Include="Assets\Scripts\BackgroundParallax.cs" />
-    <Compile Include="Assets\Scripts\BackgroundPropSpawner.cs" />
-    <Compile Include="Assets\Scripts\CameraFollow.cs" />
-    <Compile Include="Assets\Scripts\Destroyer.cs" />
-    <Compile Include="Assets\Scripts\FollowPlayer.cs" />
-    <Compile Include="Assets\Scripts\Pauser.cs" />
-    <Compile Include="Assets\Scripts\Remover.cs" />
-    <Compile Include="Assets\Utils.cs" />
+    <Compile Include="Assets\UI SAMPLE\Scripts\ActiveStateToggler.cs" />
+    <Compile Include="Assets\UI SAMPLE\Scripts\ApplicationManager.cs" />
+    <Compile Include="Assets\UI SAMPLE\Scripts\BackgroundParallax.cs" />
+    <Compile Include="Assets\UI SAMPLE\Scripts\BackgroundPropSpawner.cs" />
+    <Compile Include="Assets\UI SAMPLE\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\UI SAMPLE\Scripts\ChangeColor.cs" />
+    <Compile Include="Assets\UI SAMPLE\Scripts\Destroyer.cs" />
+    <Compile Include="Assets\UI SAMPLE\Scripts\DragMe.cs" />
+    <Compile Include="Assets\UI SAMPLE\Scripts\DragPanel.cs" />
+    <Compile Include="Assets\UI SAMPLE\Scripts\DropMe.cs" />
+    <Compile Include="Assets\UI SAMPLE\Scripts\FollowPlayer.cs" />
+    <Compile Include="Assets\UI SAMPLE\Scripts\PanelManager.cs" />
+    <Compile Include="Assets\UI SAMPLE\Scripts\Pauser.cs" />
+    <Compile Include="Assets\UI SAMPLE\Scripts\Remover.cs" />
+    <Compile Include="Assets\UI SAMPLE\Scripts\ResizePanel.cs" />
+    <Compile Include="Assets\UI SAMPLE\Scripts\ScrollDetailTexture.cs" />
+    <Compile Include="Assets\UI SAMPLE\Scripts\ShowSliderValue.cs" />
+    <Compile Include="Assets\UI SAMPLE\Scripts\TiltWindow.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\2D-Light-of-Sight-Unity-master\Resources\Shaders\Basic.shader" />
-    <None Include="Assets\2D-Light-of-Sight-Unity-master\Resources\Shaders\GreyscaleBackground.shader" />
-    <None Include="Assets\2D-Light-of-Sight-Unity-master\Resources\Shaders\GreyscaleForeground.shader" />
-    <None Include="Assets\2D-Light-of-Sight-Unity-master\Resources\Shaders\RadialLight.shader" />
-    <None Include="Assets\2D-Light-of-Sight-Unity-master\Resources\Shaders\RadialLightPlus.shader" />
     <None Include="Assets\Demo_assets\Demo_shaders\%24CutoutBump.shader" />
+    <None Include="Assets\Fonts\Jupiter\LICENSE.txt" />
+    <None Include="Assets\UI SAMPLE\Materials\UI-Default-No-Alpha.shader" />
+    <None Include="Assets\UI SAMPLE\Textures and Sprites\SF UI\Background\LICENSE.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

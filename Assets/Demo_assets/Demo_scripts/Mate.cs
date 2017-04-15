@@ -111,7 +111,7 @@ public class Mate : MonoBehaviour
                     velocity.x = velocityVector.x; // -----------------------------------------------------------------
                     velocity.y = velocityVector.y; // -----------------------------------------------------------------
                     StartCoroutine(DisableTrail()); // отключаем хвост через несколько секунд
-                    GameManager.gameManager.StartShake(0.15f, 0.07f); // Трясем экран
+                    StartCoroutine(CamUtils.Shake(0.15f, 0.07f)); // Трясем экран
                     StartCoroutine(fixPosition()); // подгоняем положение
                 }
             }

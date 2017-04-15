@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class InGameSceneLoader : MonoBehaviour {
     public int sceneNumber;
@@ -18,7 +18,7 @@ public class InGameSceneLoader : MonoBehaviour {
     {
         if (collision.tag == "Player")
         {
-            AsyncOperation loading = SceneManager.LoadSceneAsync("testscene2");
+            GameManager.gameManager.LoadScene("testscene2");
             //GameManager.gameManager.
             /*while (!loading.isDone)
             {

@@ -21,9 +21,9 @@ public class TriggerCameraShaker : MonoBehaviour {
         if (collision.tag == "Player")
         {
             if (enable)
-                GameManager.gameManager.StartShake(duration, magnitude);
-            else
-               GameManager.gameManager.StopShake();
+                StartCoroutine(CamUtils.Shake(duration, magnitude));
+            else { }
+               // CamUtils.StopShake();
         }
     }
 }
