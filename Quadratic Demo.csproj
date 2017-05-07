@@ -104,6 +104,7 @@
     <Compile Include="Assets\Demo_assets\Demo_scripts\MateCreator.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\MatesManager.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\MenuPostProcess.cs" />
+    <Compile Include="Assets\Demo_assets\Demo_scripts\Parallax.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\ParticleSystemSelfDestruct.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\Press.cs" />
     <Compile Include="Assets\Demo_assets\Demo_scripts\Teleport.cs" />

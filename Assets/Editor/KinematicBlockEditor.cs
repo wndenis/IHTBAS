@@ -7,7 +7,7 @@ using UnityEditor;
 public class KinematicBlockEditor : Editor
 {
     //KinematicBlock subject;
-    SerializedProperty typeOfAngle;
+    SerializedProperty angleType;
 
     SerializedProperty delay;
     SerializedProperty expansion;
@@ -15,6 +15,9 @@ public class KinematicBlockEditor : Editor
     SerializedProperty startChain;
     SerializedProperty endChain;
     SerializedProperty reverseAtEnd;
+    SerializedProperty reverseCollider;
+    SerializedProperty reverseType;
+    SerializedProperty reverseTriggerCondition;
     SerializedProperty cycle;
     SerializedProperty delayAtEnd;
     SerializedProperty mayKill;
@@ -27,13 +30,16 @@ public class KinematicBlockEditor : Editor
     {
         //subject = target as KinematicBlock;
 
-        typeOfAngle = serializedObject.FindProperty("typeOfAngle");
+        angleType = serializedObject.FindProperty("angleType");
         delay = serializedObject.FindProperty("delay");
         expansion = serializedObject.FindProperty("expansion");
         expansionTime = serializedObject.FindProperty("expansionTime");
         startChain = serializedObject.FindProperty("startChain");
         endChain = serializedObject.FindProperty("endChain");
         reverseAtEnd = serializedObject.FindProperty("reverseAtEnd");
+        reverseCollider = serializedObject.FindProperty("reverseCollider");
+        reverseTriggerCondition = serializedObject.FindProperty("reverseTriggerCondition");
+        reverseType = serializedObject.FindProperty("reverseType");
         cycle = serializedObject.FindProperty("cycle");
         delayAtEnd = serializedObject.FindProperty("delayAtEnd");
         mayKill = serializedObject.FindProperty("mayKill");
@@ -50,8 +56,7 @@ public class KinematicBlockEditor : Editor
 
         EditorGUI.BeginChangeCheck();
 
-        //Вывод в редактор выпадающего меню
-        EditorGUILayout.PropertyField(typeOfAngle);
+        EditorGUILayout.PropertyField(angleType);
         /*
         //Проверка выбранного пункта в выпадающем меню, 
         if (subject.typeOfAngle == KinematicBlock.AngleType.Custom)
@@ -59,7 +64,6 @@ public class KinematicBlockEditor : Editor
             //Вывод в редактор слайдера
             EditorGUILayout.Slider(angle, 0, 359, new GUIContent("Angle"));
             //compName.stringValue = "First";
-
         }*/
         EditorGUILayout.Space();
         EditorGUILayout.PropertyField(delay);
@@ -72,7 +76,16 @@ public class KinematicBlockEditor : Editor
         EditorGUILayout.PropertyField(reverseAtEnd);
         if (reverseAtEnd.boolValue)
         {
-            EditorGUILayout.PropertyField(delayAtEnd);
+            EditorGUILayout.PropertyField(reverseType);
+            if(reverseType.enumValueIndex == 0)
+            {
+                EditorGUILayout.PropertyField(delayAtEnd);
+            }
+            else
+            {
+                EditorGUILayout.PropertyField(reverseTriggerCondition);
+                EditorGUILayout.PropertyField(reverseCollider);
+            }
             EditorGUILayout.PropertyField(cycle);
         }
         //if (!cycle.boolValue)

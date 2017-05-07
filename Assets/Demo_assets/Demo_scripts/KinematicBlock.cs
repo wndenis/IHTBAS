@@ -7,17 +7,26 @@ public class KinematicBlock : MonoBehaviour
 {
     // DO NOT SUKA USE CHILDREN WITH THEIR OWN RIGIDBODIES!!!!!!!
 
-    [HideInInspector] public enum AngleType { Up = 1, Left = 2, Down = 3, Right = 0};
+    [HideInInspector] public enum AngleTypes { Up = 1, Left = 2, Down = 3, Right = 0};
 
-    [HideInInspector] public AngleType typeOfAngle = AngleType.Up;
+    [HideInInspector] public AngleTypes angleType = AngleTypes.Up;
 
     [HideInInspector] public float delay = 1000f;
     [HideInInspector] public float expansion = 2f;
     [HideInInspector] public float expansionTime = 1000f;
 
-    public bool reverseAtEnd = false;
+    [HideInInspector] public bool reverseAtEnd = false;
+    [HideInInspector] public enum ReverseTypes { byDelay = 0, byTrigger = 1 };
+    [HideInInspector]public ReverseTypes reverseType = ReverseTypes.byDelay;
+
+    [HideInInspector] public float delayAtEnd = 500f;
+
+    [HideInInspector] public enum reverseTriggerConditions { OnExit = 0, OnEnter = 1 };
+    [HideInInspector] public reverseTriggerConditions reverseTriggerCondition = reverseTriggerConditions.OnExit;
+    [HideInInspector] public BoxCollider2D reverseCollider;
+    
     public bool cycle = false;
-    public float delayAtEnd = 500f;
+
     public bool mayKill = false;
     public float killDelay;
     public Transform killZoneTrfm;
@@ -98,22 +107,29 @@ public class KinematicBlock : MonoBehaviour
                     //endChain = new Transform[0];
                     if (reverseAtEnd)
                     {
+
+                        //if (reverseType == ReverseTypes.byDelay) { }
+                        //if (reverseType == ReverseTypes.byTrigger && ) { }
+
+
+
+
                         t = 0;
-                        if (typeOfAngle == AngleType.Up)
+                        if (angleType == AngleTypes.Up)
                         {
-                            typeOfAngle = AngleType.Down;
+                            angleType = AngleTypes.Down;
                         }
-                        else if (typeOfAngle == AngleType.Left)
+                        else if (angleType == AngleTypes.Left)
                         {
-                            typeOfAngle = AngleType.Right;
+                            angleType = AngleTypes.Right;
                         }
-                        else if (typeOfAngle == AngleType.Down)
+                        else if (angleType == AngleTypes.Down)
                         {
-                            typeOfAngle = AngleType.Up;
+                            angleType = AngleTypes.Up;
                         }
-                        else if (typeOfAngle == AngleType.Right)
+                        else if (angleType == AngleTypes.Right)
                         {
-                            typeOfAngle = AngleType.Left;
+                            angleType = AngleTypes.Left;
                         }
 
                         triggered = false;
@@ -165,15 +181,15 @@ public class KinematicBlock : MonoBehaviour
 
     public Vector3 getVectorAngle()
     {
-        if (typeOfAngle == AngleType.Up)
+        if (angleType == AngleTypes.Up)
         {
             return Vector3.up;
         }
-        else if (typeOfAngle == AngleType.Left)
+        else if (angleType == AngleTypes.Left)
         {
             return Vector3.left;
         }
-        else if (typeOfAngle == AngleType.Down)
+        else if (angleType == AngleTypes.Down)
         {
             return Vector3.down;
         }
